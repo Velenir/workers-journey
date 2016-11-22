@@ -1,0 +1,29 @@
+*, *::before, *::after {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+a:focus {
+	outline: none;
+}
+
+html {
+	height: 100%;
+}
+
+$body-background: white;
+
+body {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	background: $body-background;
+}
+
+.content {
+	flex: 1 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
