@@ -1,0 +1,25 @@
+.app {
+	position: relative;
+
+	&__content {
+		max-width: 80%;
+		margin: 0 auto;
+	}
+
+	&__menu {
+		position: absolute;
+		left: 0;
+		top: 0;
+
+		&__list {
+			list-style: none;
+		}
+
+		&__item {
+			> .active {
+				color: red;
+				font-weight: bold;
+			}
+		}
+	}
+}
