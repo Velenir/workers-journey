@@ -51,6 +51,10 @@ const common = {
 				loaders: [
 					'file?name=img/[name].[hash].[ext]'
 				]
+			},
+			{
+				test:   /\.md$/,
+				loader: 'html!markdown-it'
 			}
 		]
 	},
@@ -61,6 +65,12 @@ const common = {
 			})],
 			defaults: [autoprefixer]
 		};
+	},
+	
+	'markdown-it': {
+		preset: 'default',
+		typographer: true,
+		linkify: true
 	},
 
 	// Entry accepts a path or an object of entries.
@@ -157,7 +167,14 @@ default:
 	);
 }
 
+const {Joi} = validate;
+const markdownLoaderSchema = Joi.object({
+  // this would just allow the property and doesn't perform any additional validation
+	"markdown-it": Joi.any(),
+});
+
 // Run validator in quiet mode to avoid output in stats
 module.exports = validate(config, {
-	quiet: true
+	quiet: true,
+	schemaExtension: markdownLoaderSchema
 });
