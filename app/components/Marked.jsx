@@ -24,7 +24,7 @@ class Marked extends React.Component {
 	componentDidMount() {
 		for (let el of this.marked.querySelectorAll("[class*=language-]")) {
 			addLineNumbers(el);
-		}		
+		}
 	}
 	
 	render() {
