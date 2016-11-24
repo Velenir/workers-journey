@@ -9,7 +9,7 @@ if(typeof process !== "undefined" && process.env.NODE_ENV === "production") {
 } else {
 	history = require('react-router/lib/browserHistory');
 }
-console.log(typeof process !== "undefined" && process.env.NODE_ENV === "production");
+// console.log(typeof process !== "undefined" && process.env.NODE_ENV);
 
 import App from './components/App';
 import Home from './components/Home';
