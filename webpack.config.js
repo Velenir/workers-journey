@@ -14,7 +14,8 @@ const autoprefixer = require('autoprefixer');
 const PATHS = {
 	app: path.join(__dirname, 'app'),
 	style: path.join(__dirname, 'app', 'main.scss'),
-	build: path.join(__dirname, 'build')
+	build: path.join(__dirname, 'build'),
+	images: path.join(__dirname, 'app', 'images')
 };
 
 
@@ -50,7 +51,8 @@ const common = {
 				test: /\.svg$/,
 				loaders: [
 					'file?name=img/[name].[hash].[ext]'
-				]
+				],
+				include: PATHS.images
 			},
 			{
 				test:   /\.md$/,
@@ -141,6 +143,7 @@ case 'stats':
 			excludeJSChunks: ['style']	// don't include specific chunks in scripts (when .js is a byproduct of already extracted .css)
 		}),
 		parts.extractCSS(PATHS.style),
+		parts.optimizeImages(PATHS.images),
 		parts.deduplicate()
 	);
 	break;
@@ -159,6 +162,7 @@ default:
 			appMountId: "app"
 		}),
 		parts.setupCSS(PATHS.style),
+		parts.displayImages(PATHS.images),
 		parts.devServer({
 			// Customize host/port here if needed
 			host: process.env.HOST,

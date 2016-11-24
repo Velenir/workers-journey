@@ -106,6 +106,39 @@ exports.extractCSS = function(paths) {
 	};
 };
 
+// for development
+exports.displayImages = function(paths) {
+	return {
+		module: {
+			loaders: [
+				{
+					test: /\.(jpe?g|png|gif)$/i,
+					loader: 'file?name=img/[name].[hash].[ext]',
+					include: paths
+				}
+			]
+		}
+	};
+};
+
+// for production
+exports.optimizeImages = function(paths) {
+	return {
+		module: {
+			loaders: [
+				{
+					test: /\.(jpe?g|png|gif)$/i,
+					loaders: [
+						'url?limit=10000&name=img/[name].[hash].[ext]',
+						'image-webpack?optimizationLevel=7&interlaced=false'
+					],
+					include: paths
+				}
+			]
+		}
+	};
+};
+
 // for production
 exports.minify = function() {
 	return {
