@@ -9,6 +9,8 @@ const parts = require('./libs/parts');
 const stylelint = require('stylelint');
 const autoprefixer = require('autoprefixer');
 
+const mila = require('markdown-it-link-attributes');
+
 // const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 const PATHS = {
@@ -72,7 +74,11 @@ const common = {
 	'markdown-it': {
 		preset: 'default',
 		typographer: true,
-		linkify: true
+		linkify: true,
+		use: [[mila, {
+			target: '_blank',
+			rel: 'noopener noreferrer'
+		}]]
 	},
 
 	// Entry accepts a path or an object of entries.
