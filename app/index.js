@@ -1,7 +1,15 @@
 import React from 'react';
 import {render} from 'react-dom';
 
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute} from 'react-router';
+
+let history;
+if(typeof process !== "undefined" && process.env.NODE_ENV === "production") {
+	history = require('react-router/lib/hashHistory');
+} else {
+	history = require('react-router/lib/browserHistory');
+}
+console.log(typeof process !== "undefined" && process.env.NODE_ENV === "production");
 
 import App from './components/App';
 import Home from './components/Home';
@@ -11,7 +19,7 @@ import Info from './components/Info';
 // TODO maybe change browserHistory to hashHitory when deploying
 
 render((
-	<Router history={browserHistory}>
+	<Router history={history}>
 		<Route path="/" component={App}>
 			<IndexRoute component={Home}/>
 			<Route path="info" component={Info}/>
