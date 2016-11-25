@@ -2,6 +2,7 @@
 
 .markdown {
 	font-family: 'Open Sans', sans-serif;
+	margin-bottom: 2em;
 	
 	h2 {
 		margin: 1em;
@@ -21,6 +22,10 @@
 
 	pre {
 		
+	}
+	
+	hr:last-child {
+		margin-top: 1em;
 	}
 
 	a {
