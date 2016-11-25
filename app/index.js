@@ -13,6 +13,7 @@ if(typeof process !== "undefined" && process.env.NODE_ENV === "production") {
 
 import App from './components/App';
 import Home from './components/Home';
+import WorkerTypes from './components/WorkerTypes';
 import About from './components/About';
 import Info from './components/Info';
 
@@ -22,6 +23,7 @@ render((
 	<Router history={history}>
 		<Route path="/" component={App}>
 			<IndexRoute component={Home}/>
+			<Route path="worker_types" component={WorkerTypes}/>
 			<Route path="info" component={Info}/>
 			<Route path="about" component={About}/>
 		</Route>
