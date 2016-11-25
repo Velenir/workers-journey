@@ -29,6 +29,20 @@
 .steps-navigation {
 	display: flex;
 	margin: 2em 0 1em;
+	position: fixed;
+	left: 15%;
+	right: 15%;
+	bottom: 8rem;
+
+	@supports (position: sticky) {
+		position: sticky;
+
+		/* left: 15%; */
+		/* right: 15%; */
+		bottom: 8rem;
+		width: 120%;
+		margin-left: -10%;
+	}
 	
 	> .arrow {
 		width: 2.5em;
