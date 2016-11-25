@@ -2,12 +2,15 @@ import React from 'react';
 import {Link} from 'react-router';
 import Marked from './Marked';
 
-import testMark from '../marked/Home.md';
+import homeMark from '../marked/Home/Home.md';
 
 
 const Home = () => (
-	<div className="home">
-    <Marked mark={testMark}/>
+	<div className="app__content__main home">
+    <Marked mark={homeMark}/>
+		<div className="steps-navigation">
+			<Link to="worker_types" className="arrow" title ="Types of Workers"/>
+		</div>
 	</div>
 );
 
