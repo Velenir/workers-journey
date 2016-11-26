@@ -1,0 +1,53 @@
+.activate-btn {
+	width: 4.4em;
+	height: 4em;
+	
+	&__line {
+		width: 43px;
+		height: 9px;
+		background: linear-gradient(to bottom, grey, #403c3c);
+		position: absolute;
+		transform-origin: right;
+		transition: all .7s cubic-bezier(0.39, 0.58, 0.57, 1);
+		will-change: top, left, transform;
+		border-radius: 10%/40%;
+		
+		.closed & {
+			left: 10%;
+		}
+		
+		.open & {
+			left: 0;
+		}
+		
+		&:first-child {
+			.closed & {
+				top: 18%;
+			}
+			
+			.open & {
+				top: 15%;
+				transform: rotate(-45deg);
+			}
+		}
+		
+		&:nth-child(2) {
+			top: calc(50% - 3px);
+			transform-origin: center;
+			.open & {
+				transform: scaleX(0);
+			}
+		}
+		
+		&:last-child {
+			.closed & {
+				top: 71%;
+			}
+			
+			.open & {
+				top: 73%;
+				transform: rotate(45deg);
+			}
+		}
+	}
+}

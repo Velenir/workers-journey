@@ -1,3 +1,5 @@
+$menu-color: rgba(224, 223, 213, 0.11);
+
 .app {
 	position: relative;
 
@@ -10,21 +12,62 @@
 
 	&__menu {
 		position: absolute;
+		position: sticky;
 		left: 0;
-		top: 0;
+		top: .5em;
+		float: left;
+		transition: transform 1s linear;
+		background-color: $menu-color;
+		filter: drop-shadow(0 0 5px gray);
+		border-bottom-right-radius: 10%;
+		margin-top: .5em;
+		
+		&.closed {
+			transform: translateX(-100%);
+			cursor: pointer;
+		}
+		
+		&__activate {
+			position: absolute;
+			top: 0;
+			left: 100%;
+			border: 5px solid transparent;
+			border-radius: 0 53% 53% 0/0 62% 62% 0;
+			background-color: inherit;
+		}
 
 		&__list {
 			list-style: none;
+			padding: 1em;
+			font-family: monospace;
+			text-transform: uppercase;
+			font-size: 1.7em;
+			
+			&--nested {
+				font-size: .9em;
+				padding: 0 0 0 1em;
+			}
 		}
 
 		&__item {
+			padding: .3em;
+			border-bottom: 1px solid grey;
+			
+			> a {
+				text-decoration: none;
+				color: #696464;
+			}
+			
 			> .active {
-				color: red;
+				color: black;
 				font-weight: bold;
+				text-decoration: underline;
 			}
 		}
 	}
 }
+
+@import './activate-btn';
 
 .steps-navigation {
 	display: flex;
@@ -36,10 +79,7 @@
 
 	@supports (position: sticky) {
 		position: sticky;
-
-		/* left: 15%; */
-		/* right: 15%; */
-		bottom: 8rem;
+		bottom: 3rem;
 		width: 120%;
 		margin-left: -10%;
 	}
