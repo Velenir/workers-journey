@@ -16,6 +16,8 @@ import Home from './components/Home';
 import WorkerTypes from './components/WorkerTypes';
 import Dedicated from './components/Dedicated';
 import DedicatedExample from './components/DedicatedExample';
+import Shared from './components/Shared';
+import SharedExample from './components/SharedExample';
 import About from './components/About';
 import Info from './components/Info';
 
@@ -29,6 +31,10 @@ render((
 			<Route path="dedicated_worker">
 				<IndexRoute component={Dedicated}/>
 				<Route path="example" component={DedicatedExample}/>
+			</Route>
+			<Route path="shared_worker">
+				<IndexRoute component={Shared}/>
+				<Route path="example" component={SharedExample}/>
 			</Route>
 			<Route path="info" component={Info}/>
 			<Route path="about" component={About}/>
