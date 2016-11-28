@@ -14,6 +14,8 @@ if(typeof process !== "undefined" && process.env.NODE_ENV === "production") {
 import App from './components/App';
 import Home from './components/Home';
 import WorkerTypes from './components/WorkerTypes';
+import Dedicated from './components/Dedicated';
+import DedicatedExample from './components/DedicatedExample';
 import About from './components/About';
 import Info from './components/Info';
 
@@ -24,6 +26,10 @@ render((
 		<Route path="/" component={App}>
 			<IndexRoute component={Home}/>
 			<Route path="worker_types" component={WorkerTypes}/>
+			<Route path="dedicated_worker">
+				<IndexRoute component={Dedicated}/>
+				<Route path="example" component={DedicatedExample}/>
+			</Route>
 			<Route path="info" component={Info}/>
 			<Route path="about" component={About}/>
 		</Route>
