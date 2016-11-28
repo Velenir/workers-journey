@@ -9,7 +9,7 @@ const Home = () => (
 	<div className="app__content__main home">
     <Marked mark={homeMark}/>
 		<div className="steps-navigation">
-			<Link to="worker_types" className="arrow" title ="Types of Workers"/>
+			<Link to="worker_types" className="arrow" title ="Worker Types"/>
 		</div>
 	</div>
 );
