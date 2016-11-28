@@ -76,6 +76,7 @@ $menu-color: rgba(224, 223, 213, 0.11);
 	left: 15%;
 	right: 15%;
 	bottom: 8rem;
+	pointer-events: none;
 
 	@supports (position: sticky) {
 		position: sticky;
@@ -91,6 +92,7 @@ $menu-color: rgba(224, 223, 213, 0.11);
 		border-style: solid solid none none;
 		display: inline-block;
 		filter: drop-shadow(0 2px 2px black);
+		pointer-events: auto;
 		
 		&:first-of-type:not(:only-of-type) {
 			transform: rotate(-135deg);
