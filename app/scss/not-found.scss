@@ -1,0 +1,10 @@
+.not-found {
+	text-align: center;
+	font-family: "Open Sans";
+	
+	&__disclaimer {
+		margin-bottom: 1em;
+		padding: 1em;
+		border-bottom: 1px solid gray;
+	}
+}

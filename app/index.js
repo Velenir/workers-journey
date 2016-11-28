@@ -20,6 +20,7 @@ import Shared from './components/Shared';
 import SharedExample from './components/SharedExample';
 import About from './components/About';
 import Info from './components/Info';
+import NotFound from './components/NotFound';
 
 // TODO maybe change browserHistory to hashHitory when deploying
 
@@ -38,6 +39,7 @@ render((
 			</Route>
 			<Route path="info" component={Info}/>
 			<Route path="about" component={About}/>
+			<Route path="*" component={NotFound}/>
 		</Route>
 	</Router>
 ),
