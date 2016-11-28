@@ -24,6 +24,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	background: $body-background;
+	scroll-behavior: smooth;
 }
 
 .content {
