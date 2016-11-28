@@ -24,7 +24,6 @@ $menu-color: rgba(224, 223, 213, 0.11);
 		
 		&.closed {
 			transform: translateX(-100%);
-			cursor: pointer;
 		}
 		
 		&__activate {
