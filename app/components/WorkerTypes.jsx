@@ -10,7 +10,7 @@ const WorkerTypes = () => (
     <Marked mark={typesMark}/>
 		<div className="steps-navigation">
 			<Link to="/" className="arrow" title="Intro"/>
-			<Link to="/" className="arrow" title="Next"/>
+			<Link to="dedicated_worker" className="arrow" title="Dedicated Worker"/>
 		</div>
 	</div>
 );
