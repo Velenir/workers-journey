@@ -10,5 +10,5 @@ onmessage = function(event) {
 onerror = function(error) {
 	console.log("INSIDE::caught Error", error);
 	// error here is a String
-	// then it bubbles up to the Main thread as an ErrorEvent
+	// then it bubbles up to the Main thread in an ErrorEvent
 };

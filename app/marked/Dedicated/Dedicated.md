@@ -87,7 +87,7 @@ An **ErrorEvent** bubbles through the **Worker** and to the **Main thread**.
 
 onerror = function(errorMessage) {
 	// error here is a String
-	// then it bubbles up to the Main thread as an ErrorEvent
+	// then it bubbles up to the Main thread in an ErrorEvent
 }
 ```
 
