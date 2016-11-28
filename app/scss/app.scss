@@ -67,7 +67,7 @@ $menu-color: rgba(224, 223, 213, 0.11);
 	}
 }
 
-@import './activate-btn';
+@import './activate-btn', './worker-display';
 
 .steps-navigation {
 	display: flex;

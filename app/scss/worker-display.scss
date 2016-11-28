@@ -1,0 +1,78 @@
+.worker-display {
+		
+	font-size: 1.1rem;
+	font-family: monospace;
+
+	@mixin hover-active {
+		&:hover {
+			background: #f3eeee;
+		}
+		
+		&:active {
+			transform: translateY(2px);
+		}
+	}
+	
+	button {
+		background: none;
+		border: none;
+		text-decoration: underline;
+		cursor: pointer;
+		padding: 0;
+		margin: 0;
+		font-family: inherit;
+
+		@include hover-active;
+		
+		&:focus {
+			outline: none;
+		}
+	}
+	
+	.output {
+		width: 80%;
+		margin: 2em auto;
+		position: relative;
+		
+		textarea {
+			padding-left: 0.8em;
+			line-height: 1.4;
+			width: 100%;
+		}
+		
+		> img {
+			position: absolute;
+			top: 0;
+			left: 100%;
+			cursor: pointer;
+			border: 1px solid gray;
+			border-radius: 4px;
+			padding: 2px;
+			margin-left: 5px;
+
+			@include hover-active;
+		}
+	}
+	
+	input {
+		display: block;
+		margin: 1em auto;
+	}
+	
+	input[type=text] {
+		border: none;
+		box-shadow: inset 0 -3px 1px rgba(128, 128, 128, 0.3);
+		padding: 5px .5em;
+		background-color: rgba(14, 14, 14, 0.04);
+		font-size: 2em;
+		background-image: linear-gradient(to top, black, black 6%, transparent 6%, transparent);
+		background-repeat: no-repeat;
+		background-size: 0 100%;
+		transition: background-size .5s linear;
+		
+		&:focus {
+			background-size: 100% 100%;
+			background-color: initial;
+		}
+	}
+}
