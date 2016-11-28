@@ -78,7 +78,7 @@ addEventListener('message', function(event) {...});
 
 ## Error handling
 
-What if something goes wrong and the script inside of a **Worker** throws an Error. There is a `onerror` handler available in both **Worker thread** and **Main thread** for catching **ErrorEvent**s.
+What if something goes wrong and the script inside of a **Worker** throws an Error. There is an `onerror` handler available in both **Worker thread** and **Main thread** for catching **ErrorEvent**s.
 
 An **ErrorEvent** bubbles through the **Worker** and to the **Main thread**.
 
@@ -106,6 +106,7 @@ worker.onerror = function(event) {
 	// the error can be prevented from displaying in the console with
 	event.preventDefault();
 }
+```
 
 ---
 
@@ -117,7 +118,7 @@ While starting a new worker on demand isn't exactly costly, it takes more time t
 
 [^first]: [How fast are web workers? ★ Mozilla Hacks](https://hacks.mozilla.org/2015/07/how-fast-are-web-workers/)
 
-But if don't intend to use a worker anymore it is a good idea to stop the thread to save browser resources.
+But if you don't intend to use a worker anymore it is a good idea to stop the thread to save browser resources.
 
 ---
 
@@ -156,15 +157,4 @@ onmessage = function(event) {
 }
 ```
 
-```js
-// woker.js
-
----
-
-::: warning
-*here be dragons*
-:::
-
-::: run-btn
-Button
-:::
+With general description out of the way it is time we looked at an actual worker in action.
