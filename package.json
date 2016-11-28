@@ -9,7 +9,7 @@
     "stats": "webpack --profile --json > stats.json",
     "commit": "git-cz",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --cache",
+    "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern app/marked/* --cache",
     "test:stylelint": "stylelint app/**/*.scss"
   },
   "keywords": [],
