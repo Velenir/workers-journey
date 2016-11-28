@@ -3,11 +3,11 @@ import React from 'react';
 import 'style!css!highlight.js/styles/github.css';
 
 function addLineNumbers(el) {
-	console.log("adding line-numbers to", el);
+	// console.log("adding line-numbers to", el);
 	el.parentNode.classList.add("line-numbers");
 	
 	const lines = el.textContent.match(/\n/g).length;
-	console.log("found", lines, "lines");
+	// console.log("found", lines, "lines");
 	
 	const linesRow = document.createElement("span");
 	linesRow.classList.add("line-numbers__row");
@@ -33,10 +33,5 @@ class Marked extends React.Component {
 		);
 	}
 }
-
-
-// const Marked = ({mark}) => (
-// 	<div className="markdown" dangerouslySetInnerHTML={{__html: mark}}/>
-// );
 
 export default Marked;
