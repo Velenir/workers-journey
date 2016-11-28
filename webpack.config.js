@@ -90,7 +90,8 @@ const common = {
 	},
 	output: {
 		path: PATHS.build,
-		filename: 'js/[name].js'
+		filename: 'js/[name].js',
+		publicPath: '/'	// FIX this may break later on, but for now I need it for react-router + browserHistory in nested routes
 	},
 
 	// Important! Do not remove ''. If you do, imports without
