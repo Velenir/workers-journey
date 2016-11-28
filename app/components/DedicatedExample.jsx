@@ -25,8 +25,8 @@ class DedicatedExample extends React.Component {
 				<Marked mark={dedicatedExampleMark}/>
 				<div className="worker-display" dangerouslySetInnerHTML={{__html: html}} ref={c => this.display = c}/>
 				<div className="steps-navigation">
-					<Link to="dedicated_worker" className="arrow" title="Dedicated Worker"/>
-					<Link to="shared_worker" className="arrow" title="Shared Worker"/>
+					<Link to="/dedicated_worker" className="arrow" title="Dedicated Worker"/>
+					<Link to="/shared_worker" className="arrow" title="Shared Worker"/>
 				</div>
 			</div>
 		);
