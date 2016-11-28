@@ -10,7 +10,7 @@ const Dedicated = () => (
     <Marked mark={dedicatedMark}/>
 		<div className="steps-navigation">
 			<Link to="worker_types" className="arrow" title="Worker Types"/>
-			<Link to="dedicated_worker/example" className="arrow" title="Shared Worker"/>
+			<Link to="dedicated_worker/example" className="arrow" title="Dedeicated Worker Example"/>
 		</div>
 	</div>
 );
