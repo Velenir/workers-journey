@@ -10,6 +10,7 @@ const stylelint = require('stylelint');
 const autoprefixer = require('autoprefixer');
 
 const mila = require('markdown-it-link-attributes');
+const miin = require('markdown-it-include');
 
 // const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
@@ -75,10 +76,13 @@ const common = {
 		preset: 'default',
 		typographer: true,
 		linkify: true,
-		use: [[mila, {
-			target: '_blank',
-			rel: 'noopener noreferrer'
-		}]]
+		use: [
+			[miin, 'app/marked'],
+			[mila, {
+				target: '_blank',
+				rel: 'noopener noreferrer'
+			}]
+		]
 	},
 
 	// Entry accepts a path or an object of entries.

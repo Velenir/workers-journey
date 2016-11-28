@@ -41,6 +41,7 @@
     "html-webpack-template-pug": "^1.0.1",
     "image-webpack-loader": "^3.0.0",
     "markdown-it": "^8.1.0",
+    "markdown-it-include": "0.0.2",
     "markdown-it-link-attributes": "^1.0.0",
     "markdown-it-loader": "^0.5.0",
     "node-sass": "^3.13.0",
