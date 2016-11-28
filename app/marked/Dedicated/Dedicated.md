@@ -112,11 +112,11 @@ worker.onerror = function(event) {
 
 Now you have a worker set up. You can send it messages, receive responses and be happy about. But what about when you're done with the worker, do you just let it be or do you stop it?
 
-While starting a new worker on demand isn't exactly costly, it takes more time than simply passing a message with new data[^first]. So the main point is
+While starting a new worker on demand isn't exactly costly, it takes more time than simply passing a message with new data[^1]. So the main point is
 
 > Reuse workers rather than start a new one for each operation.
 
-[^first]: [How fast are web workers? ★ Mozilla Hacks](https://hacks.mozilla.org/2015/07/how-fast-are-web-workers/)
+[^1]: [How fast are web workers? ★ Mozilla Hacks](https://hacks.mozilla.org/2015/07/how-fast-are-web-workers/)
 
 But if you don't intend to use a worker anymore it is a good idea to stop the thread to save browser resources.
 

@@ -11,6 +11,7 @@ const autoprefixer = require('autoprefixer');
 
 const mila = require('markdown-it-link-attributes');
 const miin = require('markdown-it-include');
+const mif = require('markdown-it-footnote');
 
 // const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
@@ -77,6 +78,7 @@ const common = {
 		typographer: true,
 		linkify: true,
 		use: [
+			mif,
 			[miin, 'app/marked'],
 			[mila, {
 				target: '_blank',
