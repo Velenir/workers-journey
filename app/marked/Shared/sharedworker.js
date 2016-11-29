@@ -6,7 +6,7 @@ const ports = [];
 
 setInterval(function() {
 	for (let port of ports) {
-		port.postMessage("PING...");
+		port.postMessage("PING... " + ports.length + " parents");
 	}
 }, 5000);
 
@@ -15,31 +15,32 @@ function processMessage(message) {
 }
 
 
-// called on connection from each Parent thread
-onconnect = function(e) {
-	console.log("INSIDE::onconnect", e);
-	console.log("INSIDE::ports", e.ports);
-	
+// called on connection from each parent
+onconnect = function(event) {
 	// always only one port
-	const port = e.ports[0];
+	const port = event.ports[0];
+	ports.push(port);
 	
-	port.onmessage = function(e) {
-		console.log("INSIDE::onmessage", e);
-		console.log("INSIDE::message", e.data);
+	port.onmessage = function(event) {
+		console.log("INSIDE::message", event.data);
+		
 		// handle string messages
 		if(typeof event.data === "string" || event.data instanceof String) {
 			// process string message
 			const result = processMessage(event.data);
 			
 			// send result back to the Main thread
-			postMessage(result);
+			port.postMessage(result);
 			return;
 		}
 		
 		switch (event.data.command) {
 			// close worker
 		case 'CLOSE':
-			port.postMessage("Closing worker");
+			for (let port of ports) {
+				port.postMessage("Closing worker");
+			}
+			
 			console.log("INSIDE::stopping");
 			
 			close();
@@ -60,10 +61,10 @@ onconnect = function(e) {
 			port.postMessage("Unknown message format");
 		}
 	};
-	
-	port.onerror = function(error) {
-		console.log("INSIDE::onerror", error);
-		// error here is a String
-		// then it bubbles up to the Main thread in an ErrorEvent
-	};
+};
+
+onerror = function(error) {
+	console.log("INSIDE::onerror", error);
+	// error here is a String
+	// then it bubbles up to the Main thread in an ErrorEvent
 };

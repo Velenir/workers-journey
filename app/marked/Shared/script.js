@@ -4,7 +4,7 @@ const output = document.getElementById("output-message");
 document.getElementById("sendInput").onclick = sendInput;
 document.getElementById("causeError").onclick = causeError;
 document.getElementById("closeWorker").onclick = closeWorker;
-document.getElementById("terminateWorker").onclick = terminateWorker;
+document.getElementById("closePort").onclick = closePort;
 document.getElementById("clearOutput").onclick = clearOutput;
 
 let sharedWorker;
@@ -17,6 +17,12 @@ function onMessageReceived(event) {
 	
 	// autoscroll to bottom
 	output.scrollTop = output.scrollHeight;
+	
+	if(sharedWorker && event.data === "Closing worker") {
+		// worker closed itself (e.g. after receiving "CLOSE" command from another parent)
+		// allow it to be garbage collected
+		sharedWorker = null;
+	}
 }
 
 function onErrorReceived(event) {
@@ -36,9 +42,9 @@ function sendInput() {
 	// create sharedWorker if needed
 	if(!sharedWorker) {
 		console.log("OUTSIDE::creating sharedWorker");
-		sharedWorker = new SharedWorker('/js/sharedWorker.js');
+		sharedWorker = new SharedWorker('/js/sharedworker.js');
 		sharedWorker.port.onmessage = onMessageReceived;
-		sharedWorker.port.onerror = onErrorReceived;
+		sharedWorker.onerror = onErrorReceived;
 		// indicate that it is the initial message
 		command = "FIRST";
 	} else {
@@ -69,14 +75,14 @@ function closeWorker() {
 	sharedWorker = null;
 }
 
-function terminateWorker() {
+function closePort() {
 	if(!sharedWorker) {
 		console.warn("FIRST CREATE A WORKER");
 		return;
 	}
-	console.log("OUTSIDE::terminating sharedWorker");
-	sharedWorker.terminate();
-	// allow it to be garbage collected
+	console.log("OUTSIDE::closing port");
+	sharedWorker.port.close();
+	// allow the worker to be garbage collected, port can't be reopened anyway
 	sharedWorker = null;
 }
 

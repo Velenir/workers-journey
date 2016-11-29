@@ -32,7 +32,7 @@ And after receiving connection inside the **Shared Worker**:
 ```js
 // Worker thread
 
-// called on connection from each Parent thread
+// called on connection from each parent
 onconnect = function(e) {
 	// always only one port
 	const port = e.ports[0];
@@ -54,7 +54,7 @@ sharedWorker.port.start();
 ```js
 // Worker thread
 
-// called on connection from each Parent thread
+// called on connection from each parent
 onconnect = function(e) {
 	// always only one port
 	const port = e.ports[0];
@@ -66,6 +66,8 @@ onconnect = function(e) {
 };
 ```
 
+Inside `port.onmessage` function `port === event.target` and `event.target === event.currentTarget`.
+
 ### port.postMessage, port.close
 
 Posting messages is also done through the port: `port.postMessage`.
@@ -74,7 +76,7 @@ Posting messages is also done through the port: `port.postMessage`.
 
 ### Stopping Shared Worker
 
-`sharedWorker.terminate()` terminates only disconnects current sharedWorker form the **Parent thread**. The **Worker thread** will stop when all **Parent threads** have called terminate or been stopped themselves (page closed, etc.), the **Worker** itself calls `self.close()`.
+**SharedWorker** instance doesn't have `terminate` method. The **Worker thread** will stop when all **Parent threads** have been stopped themselves (page closed, etc.) or the **Worker** itself calls `self.close()`.
 
 ### Communicating between parents
 
