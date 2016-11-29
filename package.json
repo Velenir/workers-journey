@@ -61,7 +61,7 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2",
-    "webpack-merge": "^0.20.0",
+    "webpack-merge": "^1.0.1",
     "webpack-validator": "^2.2.9"
   },
   "dependencies": {
