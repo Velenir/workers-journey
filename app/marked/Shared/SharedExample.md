@@ -14,6 +14,8 @@ And interaction logic on the **Main thread**:
 !!!include(./Shared/example.html)!!!
 ```
 
-With styling applied it can be represented like the panel below. Try interacting with it.
+Now lets open a few pages/tabs with the code above.
+
+With styling applied it can be represented like the panel below. Try first opening a new window/tab from [here]() interacting with it here.
 
 ---
