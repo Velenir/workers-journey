@@ -1,6 +1,10 @@
 const input = document.getElementById("input-message");
 const output = document.getElementById("output-message");
 
+input.onkeyup = function(event) {
+	if(event.key === 'Enter') sendInput();
+};
+
 document.getElementById("sendInput").onclick = sendInput;
 document.getElementById("causeError").onclick = causeError;
 document.getElementById("closeWorker").onclick = closeWorker;
