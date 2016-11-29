@@ -5,7 +5,7 @@ let worker;
 
 function onMessageReceived(event) {
 	// progressively display worker's messages
-	console.log("OUTSIDE::received MessageEvent", event, "\ndata:", event.data);
+	console.log("OUTSIDE::onmessage", event, "\ndata:", event.data);
 		
 	output.value += (output.value ? "\n> " : "> ") + event.data;
 	
@@ -14,7 +14,7 @@ function onMessageReceived(event) {
 }
 
 function onErrorReceived(event) {
-	console.log("OUTSIDE::caught ErrorEvent", event);
+	console.log("OUTSIDE::onerror", event);
 	// progressively display worker's messages
 	output.value += (output.value ? "\n! " : "! ") + event.message;
 	

@@ -5,6 +5,7 @@ console.log("INSIDE::starting");
 setInterval(function() {
 	postMessage("PING...");
 }, 5000);
+
 // your function for processing the message
 function processMessage(message) {
 	return "Message received: " + message;
@@ -13,7 +14,7 @@ function processMessage(message) {
 // MessageEvent handler
 onmessage = function(event) {
 	// let's get a bit more involved setup
-	console.log("INSIDE::received MessageEvent", event.data);
+	console.log("INSIDE::onmessage", event.data);
 	
 	// handle string messages
 	if(typeof event.data === "string" || event.data instanceof String) {
@@ -43,7 +44,7 @@ onmessage = function(event) {
 		// this non-queued task executes
 		postMessage("Closed");
 		return;
-		// signal first message received
+	// signal first message received
 	case 'FIRST':
 		postMessage("First message");
 		// falls through
@@ -62,7 +63,7 @@ onmessage = function(event) {
 };
 
 onerror = function(error) {
-	console.log("INSIDE::caught Error", error);
+	console.log("INSIDE::onerror", error);
 	// error here is a String
 	// then it bubbles up to the Main thread in an ErrorEvent
 };

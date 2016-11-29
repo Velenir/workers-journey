@@ -41,9 +41,9 @@ const worker = new Worker('worker.js');
 // connect message handler
 worker.onmessage = function(event) {
 	console.log(`Received | ${event.data} | from worker`);
-}
+};
 // OR like this
-worker.addEventListener('message', function(event) {...})
+worker.addEventListener('message', function(event) {...});
 
 // post a message
 worker.postMessage("Initial message");
@@ -88,7 +88,7 @@ An **ErrorEvent** bubbles through the **Worker** and to the **Main thread**.
 onerror = function(errorMessage) {
 	// error here is a String
 	// then it bubbles up to the Main thread in an ErrorEvent
-}
+};
 ```
 
 In the **Main thread** properties of interest on the **ErrorEvent** are:
@@ -105,7 +105,7 @@ worker.onerror = function(event) {
 	
 	// the error can be prevented from displaying in the console with
 	event.preventDefault();
-}
+};
 ```
 
 ---
@@ -154,7 +154,7 @@ onmessage = function(event) {
 			// process data
 			return;
 	}
-}
+};
 ```
 
 With general description out of the way it is time we looked at an actual worker in action.
