@@ -15,7 +15,7 @@ class SharedExample extends React.Component {
 		if(!replaceScript) return;
 		
 		const newScript = document.createElement("script");
-		newScript.textContent = script;
+		newScript.textContent = "(function (arguments) {" + script + "})();";
 		this.display.replaceChild(newScript, replaceScript);
 	}
 	

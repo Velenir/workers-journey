@@ -1,6 +1,12 @@
 const input = document.getElementById("input-message");
 const output = document.getElementById("output-message");
 
+document.getElementById("sendInput").onclick = sendInput;
+document.getElementById("causeError").onclick = causeError;
+document.getElementById("closeWorker").onclick = closeWorker;
+document.getElementById("terminateWorker").onclick = terminateWorker;
+document.getElementById("clearOutput").onclick = clearOutput;
+
 let worker;
 
 function onMessageReceived(event) {
