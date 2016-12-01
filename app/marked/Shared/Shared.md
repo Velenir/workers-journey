@@ -78,6 +78,19 @@ Posting messages is also done through the port: `port.postMessage`.
 
 **SharedWorker** instance doesn't have `terminate` method. The **Worker thread** will stop when all **Parent threads** have been stopped themselves (page closed, etc.) or the **Worker** itself calls `self.close()`.
 
+If you want to do some cleanup in **SharedWorker** when one of its parent pages is closed, consider posting a message in `unload` or `beforeunload` event handler:
+
+```js
+// Parent thread
+addEventListener('beforeunload', function() {
+	sharedWorker.port.postMessage({command:'PARENT_CLOSING'});
+});
+// OR
+addEventListener('unload', function() {
+	sharedWorker.port.postMessage({command:'PARENT_CLOSED'});
+});
+```
+
 ### Communicating between parents
 
 You can even `postMessage` to all the parents of a **SharedWorker** if you keep track of `port`s that connect to it.
