@@ -36,20 +36,20 @@ class Menu extends React.Component {
 				</div>
 				<ul className="app__menu__list">
 					<li className="app__menu__item"><NavLink onlyActiveOnIndex={true} to="/">Home</NavLink></li>
-					<li className="app__menu__item"><NavLink to="worker_types">Worker Types</NavLink></li>
+					<li className="app__menu__item"><NavLink to="/worker_types">Worker Types</NavLink></li>
 					<ul className="app__menu__list app__menu__list--nested">
-						<li className="app__menu__item"><NavLink onlyActiveOnIndex={true} to="dedicated_worker">Dedicated</NavLink></li>
+						<li className="app__menu__item"><NavLink onlyActiveOnIndex={true} to="/dedicated_worker">Dedicated</NavLink></li>
 						<ul className="app__menu__list app__menu__list--nested">
-							<li className="app__menu__item"><NavLink to="dedicated_worker/example">Example</NavLink></li>
+							<li className="app__menu__item"><NavLink to="/dedicated_worker/example">Example</NavLink></li>
 						</ul>
-						<li className="app__menu__item"><NavLink onlyActiveOnIndex={true} to="shared_worker">Shared</NavLink></li>
+						<li className="app__menu__item"><NavLink onlyActiveOnIndex={true} to="/shared_worker">Shared</NavLink></li>
 						<ul className="app__menu__list app__menu__list--nested">
-							<li className="app__menu__item"><NavLink to="shared_worker/example">Example</NavLink></li>
+							<li className="app__menu__item"><NavLink to="/shared_worker/example">Example</NavLink></li>
 						</ul>
 					</ul>
-					<li className="app__menu__item"><NavLink to="scope">Scope</NavLink></li>
-					<li className="app__menu__item"><NavLink to="info">Info</NavLink></li>
-					<li className="app__menu__item"><NavLink to="about">About</NavLink></li>
+					<li className="app__menu__item"><NavLink to="/scope">Scope</NavLink></li>
+					<li className="app__menu__item"><NavLink to="/info">Info</NavLink></li>
+					<li className="app__menu__item"><NavLink to="/about">About</NavLink></li>
 				</ul>
 			</nav>
 		);
