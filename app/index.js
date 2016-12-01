@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 
-import { Router, Route, IndexRoute} from 'react-router';
+import { Router, Route, IndexRoute, applyRouterMiddleware} from 'react-router';
 
 let history;
 if(typeof process !== "undefined" && process.env.NODE_ENV === "production") {
@@ -24,8 +24,10 @@ import NotFound from './components/NotFound';
 
 // TODO maybe change browserHistory to hashHitory when deploying
 
+import useScroll from 'react-router-scroll/lib/useScroll';
+
 render((
-	<Router history={history}>
+	<Router history={history} render={applyRouterMiddleware(useScroll())}>
 		<Route path="/" component={App}>
 			<IndexRoute component={Home}/>
 			<Route path="worker_types" component={WorkerTypes}/>
