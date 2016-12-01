@@ -55,6 +55,11 @@ onconnect = function(event) {
 				port.postMessage(result);
 			}
 			return;
+		case 'PORT_CLOSED':
+		case 'PARENT_CLOSED':
+			// remove reference to now inactive port
+			ports.splice(ports.indexOf(port), 1);
+			return;
 		case 'ERROR':
 			throw new Error("Some kind of error");
 		default:

@@ -85,11 +85,20 @@ function closePort() {
 		return;
 	}
 	console.log("OUTSIDE::closing port");
+	
+	// inform sharedWorker that you closed the port
+	sharedWorker.port.postMessage({command:'PORT_CLOSED'});
 	sharedWorker.port.close();
-	// allow the worker to be garbage collected, port can't be reopened anyway
+	
+	// allow the worker to be garbage collected, port can't be reopened anyway, will have to start anew
 	sharedWorker = null;
 }
 
 function clearOutput() {
 	output.value = "";
 }
+
+// inform sharedWorker when page/tab is closed
+addEventListener('unload', function() {
+	sharedWorker.port.postMessage({command:'PARENT_CLOSED'});
+});
