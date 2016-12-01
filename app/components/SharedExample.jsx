@@ -3,10 +3,14 @@ import {Link} from 'react-router';
 import Marked from './Marked';
 
 import sharedExampleMark from '../marked/Shared/SharedExample.md';
-import script from '!!raw!../marked/Shared/script.js';
+import script from '!!raw!../marked/Shared/script.js';	//eslint-disable-line import/no-duplicates
 import html from '!!html!../marked/Shared/example.html';
 
 import '!!file?name=js/[name].[ext]!../marked/Shared/sharedworker.js';
+import '!!file?name=example/shared_worker/index.html!extract!html!extract!pug-html?export=false!../marked/Shared/sharedworker.pug';
+
+import '!!file?name=example/shared_worker/style.css!extract!css!postcss!sass!../scss/worker-display.scss';
+import '!!file?name=example/shared_worker/script.js!../marked/Shared/script.js';	//eslint-disable-line import/no-duplicates
 
 
 class SharedExample extends React.Component {
