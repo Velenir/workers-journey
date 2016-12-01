@@ -16,7 +16,7 @@ $menu-color: rgba(224, 223, 213, 0.11);
 		left: 0;
 		top: .5em;
 		float: left;
-		transition: transform 1s linear;
+		transition: transform .7s linear;
 		background-color: $menu-color;
 		filter: drop-shadow(0 0 5px gray);
 		border-bottom-right-radius: 10%;
