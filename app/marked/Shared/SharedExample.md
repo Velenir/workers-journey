@@ -12,6 +12,9 @@ And interaction logic on the **Main thread**:
 
 ```html
 !!!include(./Shared/example.html)!!!
+<script id="main-thread__script">
+!!!include(./Shared/script.js)!!!
+</script>
 ```
 
 Now lets open a few pages/tabs with the code above.

@@ -12,6 +12,9 @@ And interaction logic on the **Main thread**:
 
 ```html
 !!!include(./Dedicated/example.html)!!!
+<script id="main-thread__script">
+!!!include(./Dedicated/script.js)!!!
+</script>
 ```
 
 With styling applied it can be represented like the panel below. Try interacting with it.

@@ -14,13 +14,10 @@ import '!!file?name=example/shared_worker/script.js!../marked/Shared/script.js';
 
 
 class SharedExample extends React.Component {
-	componentDidMount() {
-		const replaceScript = this.display.querySelector("#main-thread__script");
-		if(!replaceScript) return;
-		
-		const newScript = document.createElement("script");
-		newScript.textContent = "(function (arguments) {" + script + "})();";
-		this.display.replaceChild(newScript, replaceScript);
+	componentDidMount() {		
+		const parentScript = document.createElement("script");
+		parentScript.textContent = "(function (arguments) {" + script + "})();";
+		this.display.appendChild(parentScript);
 	}
 	
 	render() {

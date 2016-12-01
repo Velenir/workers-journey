@@ -11,12 +11,9 @@ import '!!file?name=js/[name].[ext]!../marked/Dedicated/worker.js';
 
 class DedicatedExample extends React.Component {
 	componentDidMount() {
-		const replaceScript = this.display.querySelector("#main-thread__script");
-		if(!replaceScript) return;
-		
-		const newScript = document.createElement("script");
-		newScript.textContent = "(function (arguments) {" + script + "})();";
-		this.display.replaceChild(newScript, replaceScript);
+		const parentScript = document.createElement("script");
+		parentScript.textContent = "(function (arguments) {" + script + "})();";
+		this.display.appendChild(parentScript);
 	}
 	
 	render() {
