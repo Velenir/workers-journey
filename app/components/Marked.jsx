@@ -6,7 +6,7 @@ function addLineNumbers(el) {
 	// console.log("adding line-numbers to", el);
 	el.parentNode.classList.add("line-numbers");
 	
-	const lines = el.textContent.match(/\n/g).length;
+	const lines = el.textContent.split("\n").length - 1;
 	// console.log("found", lines, "lines");
 	
 	const linesRow = document.createElement("span");
