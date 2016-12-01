@@ -19,6 +19,8 @@ And interaction logic on the **Main thread**:
 
 Now lets open a few pages/tabs with the code above.
 
-With styling applied it can be represented like the panel below. Try first opening a new window/tab from [here]() interacting with it here.
+With styling applied it can be represented like the panel below.
+
+First click [here](/example/shared_worker/) to open a couple of new windows/tabs. They will all share the same **Worker** with this page. Then try interacting with that **Shared Worker** across multiple parent pages.
 
 ---
