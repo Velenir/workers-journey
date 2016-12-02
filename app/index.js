@@ -18,6 +18,7 @@ import Dedicated from './components/Dedicated';
 import DedicatedExample from './components/DedicatedExample';
 import Shared from './components/Shared';
 import SharedExample from './components/SharedExample';
+import WorkerScope from './components/WorkerScope';
 import About from './components/About';
 import Info from './components/Info';
 import NotFound from './components/NotFound';
@@ -39,6 +40,7 @@ render((
 				<IndexRoute component={Shared}/>
 				<Route path="example" component={SharedExample}/>
 			</Route>
+			<Route path="worker_scope" component={WorkerScope}/>
 			<Route path="info" component={Info}/>
 			<Route path="about" component={About}/>
 			<Route path="*" component={NotFound}/>
