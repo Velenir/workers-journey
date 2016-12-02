@@ -20,20 +20,20 @@ And now you want to run this inside a **Worker Thread**. You also want to pass i
 Let's name your **Worker**'s script `worker.js`. To create a **Worker** object you pass a script URL **Worker** constructor.
 
 ```js
-// Main thread
+// Parent thread
 
 const worker = new Worker('worker.js');
 ```
 
 > The script URL must obey [same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy).
 
-Your **Main thread** and **Worker** will be communicating by post. That is:
+Your **Parent thread** and **Worker** will be communicating by post. That is:
 
 + **postMessage** function sends a message.
 + **onmessage** handler receives **MessageEvent**. The message will be in **event.data**.
 
 ```js
-// Main thread
+// Parent thread
 
 // create a worker, it starts immediately
 const worker = new Worker('worker.js');
@@ -64,7 +64,7 @@ function processMessage(message) {
 onmessage = function(event) {
 	const result = processMessage(event.data);
 	
-	// send result back to the Main thread
+	// send result back to the Parent thread
 	postMessage(result);
 };
 // OR
@@ -78,27 +78,27 @@ addEventListener('message', function(event) {...});
 
 ## Error handling
 
-What if something goes wrong and the script inside of a **Worker** throws an Error. There is an `onerror` handler available in both **Worker thread** and **Main thread** for catching **ErrorEvent**s.
+What if something goes wrong and the script inside of a **Worker** throws an Error. There is an `onerror` handler available in both **Worker thread** and **Parent thread** for catching **ErrorEvent**s.
 
-An **ErrorEvent** bubbles through the **Worker** and to the **Main thread**.
+An **ErrorEvent** bubbles through the **Worker** and to the **Parent thread**.
 
 ```js
 // worker
 
 onerror = function(errorMessage) {
 	// error here is a String
-	// then it bubbles up to the Main thread in an ErrorEvent
+	// then it bubbles up to the Parent thread in an ErrorEvent
 };
 ```
 
-In the **Main thread** properties of interest on the **ErrorEvent** are:
+In the **Parent thread** properties of interest on the **ErrorEvent** are:
 
 + **message** - the human-readable error description, same as errorMessage in the **Worker**.
 + **filename** - the name of the script file where the error happened.
 + **lineno** - the line where the error happened.
 
 ```js
-// Main thread
+// Parent thread
 
 worker.onerror = function(event) {
 	console.warn(`Error: ${event.message} in ${event.filename} on line ${event.lineno}`);
@@ -124,7 +124,7 @@ But if you don't intend to use a worker anymore it is a good idea to stop the th
 
 ## Stopping a Worker
 
-A **Worker** can be stopped from inside its thread by calling `close()` (`self.close()`) and from outside (on the **Main thread**) by calling `worker.terminate()`.
+A **Worker** can be stopped from inside its thread by calling `close()` (`self.close()`) and from outside (on the **Parent thread**) by calling `worker.terminate()`.
 
 + After calling `self.close()` **Worker** discards all tasks enqueued in its event loop.
 + After calling `worker.terminate()` **Worker** terminates immediately without opportunity to clean up after itself. If that is undesirable consider posting a message to the worker indicating for it to finish up and call `close()`;
@@ -132,7 +132,7 @@ A **Worker** can be stopped from inside its thread by calling `close()` (`self.c
 After the **Worker** has been stopped it can't be restarted. You will have to recreate it with `worker = new Worker('worker.js')`.
 
 ```js
-// Main thread
+// Parent thread
 // ...
 
 worker.postMessage({command: "close"});

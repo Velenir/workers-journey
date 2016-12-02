@@ -16,7 +16,7 @@ in any script you would like to access it from, be it a browser window, tab, an 
 
 ## Differences from Dedicated Worker
 
-The major difference is in the way you communicate with a **Shared Worker** - through its `port` object. Also, the `port` connection has to first be established both in the **Main thread** and in the **Worker thread**.
+The major difference is in the way you communicate with a **Shared Worker** - through its `port` object. Also, the `port` connection has to first be established both in the **Parent thread** and in the **Worker thread**.
 
 ### port.onmessage
 

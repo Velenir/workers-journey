@@ -29,7 +29,7 @@ onconnect = function(event) {
 			// process string message
 			const result = processMessage(event.data);
 			
-			// send result back to the Main thread
+			// send result back to the Parent thread
 			port.postMessage(result);
 			return;
 		}
@@ -71,5 +71,5 @@ onconnect = function(event) {
 onerror = function(error) {
 	console.log("INSIDE::onerror", error);
 	// error here is a String
-	// then it bubbles up to the Main thread in an ErrorEvent
+	// then it bubbles up to the Parent thread in an ErrorEvent
 };
