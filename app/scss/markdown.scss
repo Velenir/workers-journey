@@ -22,6 +22,10 @@
 
 	pre {
 		margin: 1em 0 1em 1em;
+		
+		+ pre {
+			margin-top: 1.5em;
+		}
 	}
 	
 	hr:last-child {
