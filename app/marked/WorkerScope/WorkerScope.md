@@ -78,7 +78,7 @@ console.log(array.byteLength === 0);	// true
 
 As you can see, after the transfer the buffer becomes empty. It indicates that it was not copied to/from the **Worker** but rather moved there wholesale (you can think of it as `std::move` from C++ if that helps).
 
-When sending a **Transferable** the important part is to include it in the **transferList** and to pass a reference to it (or a TypedArray view of it) as part of **aMessage**. So if, for example, you want to send an object and a **Transferable** as part of that object, then you could use something along these lines:
+When sending a **Transferable** the important part is to include it in the **transferList** and to pass a reference to it (or to an object that includes a reference to it) as part of **aMessage**. So if, for example, you want to send an object and a **Transferable** as part of that object, then you could use something along these lines:
 
 ```js
 postMessage(
