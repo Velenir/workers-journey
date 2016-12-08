@@ -51,7 +51,7 @@ It can't duplicate **Function** and **Error** objects, also the prototype chain 
 
 A major implication of this is that the only way to pass a function to a **Worker** is to coerce it `toString()` and then process with `eval(str)` or `new Function(str)` after transfer.
 
-What you have to keep in mind, though, is performance -- transferring a lone string is much faster than transferring an object[^1][^2]. Therefore, if your use case doesn't require sending object types mentioned above or you can reconstruct them from strings reasonably fast (e.g. sending **RegExp** pattern and flags separately and to combine them in `new RegExp(pattern, flags)` later), it would be much more performant to serialize **aMessage** with `JSON.stringify` before and deserialize with `JSON.parse` after.
+What you have to keep in mind, though, is performance — transferring a lone string is much faster than transferring an object[^1][^2]. Therefore, if your use case doesn't require sending object types mentioned above or you can reconstruct them from strings reasonably fast (e.g. sending **RegExp** pattern and flags separately and to combine them in `new RegExp(pattern, flags)` later), it would be much more performant to serialize **aMessage** with `JSON.stringify` before and deserialize with `JSON.parse` after.
 
 [^1]: [High-performance Web Worker messages](https://nolanlawson.com/2016/02/29/high-performance-web-worker-messages/)
 [^2]: [Worker Performance Tests](https://runspired.github.io/webworker-performance/)
@@ -65,6 +65,7 @@ To illustrate:
 const buffer  = new ArrayBuffer(1024*1024*32);	// 32MB
 const array = Uint8Array(buffer);
 
+// fill it with something
 for (let i = 0; i < array.length; ++i) {
   array[i] = i;
 }
@@ -75,7 +76,7 @@ worker.postMessage(array.buffer, [array.buffer]);
 console.log(array.byteLength === 0);	// true
 ```
 
-As you can see, after the transfer the buffer becomes empty. It indicates that it was not copied to/from the **Worker** but rather moved there wholesale (you can think of it as `std::move` in C++ if that helps).
+As you can see, after the transfer the buffer becomes empty. It indicates that it was not copied to/from the **Worker** but rather moved there wholesale (you can think of it as `std::move` from C++ if that helps).
 
 When sending a **Transferable** the important part is to include it in the **transferList** and to pass a reference to it (or a TypedArray view of it) as part of **aMessage**. So if, for example, you want to send an object and a **Transferable** as part of that object, then you could use something along these lines:
 
@@ -100,7 +101,7 @@ onmessage = function(event) {
 	const int8Array = new Int8Array(buffer2);
 };
 ```
-
+> The take-away is — prefer `JSON.stringify` to Structure Cloning if you can, use **Transferable** objects if available.
 ---
 
 ## importScripts
@@ -160,7 +161,7 @@ onmessage = function(event) {
 helpFunction();
 const prop = GLOBALS.prop;
 ```
-In the manner of its importing mechanism **importScripts** is similar to `<script src="path/to/file.js">` injection -- script content gets added to the page/worker and executed in global scope. It is even possible to make JSONP requests with **importScripts**.
+In the manner of its importing mechanism **importScripts** is similar to `<script src="path/to/file.js">` injection — script content gets added to the page/worker and executed in global scope. It is even possible to make JSONP requests with **importScripts**.
 
 ```js
 // inside worker
