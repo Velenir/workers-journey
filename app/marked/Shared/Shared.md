@@ -126,7 +126,7 @@ onconnect = function(e) {
 
 What if you would like some pages of your site to share  a **Worker** and some other pages to share another **Worker**, but create them from the same script. Or parallelize calculations by creating more distinct **Shared Workers** with the same script.
 
-You can do that by passing a second parameter  to **ServiceWorker** constructor -- the name of a separate **Worker thread**.
+You can do that by passing a second parameter  to **ServiceWorker** constructor — the name of a separate **Worker thread**.
 
 ```js
 // Parent thread, script 1
