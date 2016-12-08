@@ -19,6 +19,7 @@ import DedicatedExample from './components/DedicatedExample';
 import Shared from './components/Shared';
 import SharedExample from './components/SharedExample';
 import WorkerScope from './components/WorkerScope';
+import InliningWorkers from './components/InliningWorkers';
 import About from './components/About';
 import Info from './components/Info';
 import NotFound from './components/NotFound';
@@ -41,6 +42,7 @@ render((
 				<Route path="example" component={SharedExample}/>
 			</Route>
 			<Route path="worker_scope" component={WorkerScope}/>
+			<Route path="inlining_workers" component={InliningWorkers}/>
 			<Route path="info" component={Info}/>
 			<Route path="about" component={About}/>
 			<Route path="*" component={NotFound}/>

@@ -10,7 +10,7 @@ const WorkerScope = () => (
     <Marked mark={scopeMark}/>
 		<div className="steps-navigation">
 			<Link to="shared_worker/example" className="arrow" title="Shared Worker Example"/>
-			<Link to="info" className="arrow" title="Info"/>
+			<Link to="inlining_workers" className="arrow" title="Inlining Workers"/>
 		</div>
 	</div>
 );
