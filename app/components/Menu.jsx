@@ -49,6 +49,7 @@ class Menu extends React.Component {
 					</ul>
 					<li className="app__menu__item"><NavLink to="/worker_scope">Worker Scope</NavLink></li>
 					<li className="app__menu__item"><NavLink to="/inlining_workers">Inlining</NavLink></li>
+					<li className="app__menu__item"><NavLink to="/caveats">Caveats</NavLink></li>
 					<li className="app__menu__item"><NavLink to="/info">Info</NavLink></li>
 					<li className="app__menu__item"><NavLink to="/about">About</NavLink></li>
 				</ul>

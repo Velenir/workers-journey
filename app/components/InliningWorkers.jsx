@@ -10,7 +10,7 @@ const InliningWorkers = () => (
     <Marked mark={inliningMark}/>
 		<div className="steps-navigation">
 			<Link to="worker_scope" className="arrow" title="Worker Scope"/>
-			<Link to="info" className="arrow" title="Info"/>
+			<Link to="caveats" className="arrow" title="Caveats"/>
 		</div>
 	</div>
 );

@@ -77,6 +77,7 @@ const common = {
 		preset: 'default',
 		typographer: true,
 		linkify: true,
+		html: true,
 		use: [
 			mif,
 			[miin, 'app/marked'],
