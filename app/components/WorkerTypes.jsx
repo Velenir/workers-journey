@@ -9,7 +9,7 @@ const WorkerTypes = () => (
 	<div className="app__content__main worker-types">
     <Marked mark={typesMark}/>
 		<div className="steps-navigation">
-			<Link to="/" className="arrow" title="Intro"/>
+			<Link to="/intro" className="arrow" title="Intro"/>
 			<Link to="dedicated_worker" className="arrow" title="Dedicated Worker"/>
 		</div>
 	</div>

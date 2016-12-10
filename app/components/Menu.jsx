@@ -36,6 +36,7 @@ class Menu extends React.Component {
 				</div>
 				<ul className="app__menu__list">
 					<li className="app__menu__item"><NavLink onlyActiveOnIndex={true} to="/">Home</NavLink></li>
+					<li className="app__menu__item"><NavLink to="/intro">Introduction</NavLink></li>
 					<li className="app__menu__item"><NavLink to="/worker_types">Worker Types</NavLink></li>
 					<ul className="app__menu__list app__menu__list--nested">
 						<li className="app__menu__item"><NavLink onlyActiveOnIndex={true} to="/dedicated_worker">Dedicated</NavLink></li>

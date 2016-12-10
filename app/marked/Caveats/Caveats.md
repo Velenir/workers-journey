@@ -1,5 +1,3 @@
-<script src="//cdn.jsdelivr.net/caniuse-embed/1.0.1/caniuse-embed.min.js"></script>
-
 # Caveats
 
 **Web Workers** is a relatively new technology, but it is already well supported by modern browsers (at least **Dedicated Workers** are):

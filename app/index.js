@@ -13,6 +13,7 @@ if(typeof process !== "undefined" && process.env.NODE_ENV === "production") {
 
 import App from './components/App';
 import Home from './components/Home';
+import Intro from './components/Intro';
 import WorkerTypes from './components/WorkerTypes';
 import Dedicated from './components/Dedicated';
 import DedicatedExample from './components/DedicatedExample';
@@ -33,6 +34,7 @@ render((
 	<Router history={history} render={applyRouterMiddleware(useScroll())}>
 		<Route path="/" component={App}>
 			<IndexRoute component={Home}/>
+			<Route path="intro" component={Intro}/>
 			<Route path="worker_types" component={WorkerTypes}/>
 			<Route path="dedicated_worker">
 				<IndexRoute component={Dedicated}/>

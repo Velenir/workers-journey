@@ -1,4 +1,4 @@
-## Types of Workers
+# Types of Workers
 
 Different types of workers are suitable for different purposes and situations. Fortunately the underlying API is mostly the same across all worker types.
 
