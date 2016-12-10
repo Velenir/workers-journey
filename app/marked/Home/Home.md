@@ -1,34 +1,33 @@
-## The problem
+"JavaScript is single-threaded", cries the crowd.
 
-Have you ever experienced a script lagging. Page rendered unresponsive if only for a brief moment. But that one moment capable of disrupting an otherwise smooth animation or scrolling. What about times when it's not just a singular moment but what seems to be an eternity. And then a **Warning: Unresponsive script** prompt.
+"But couldn't we... like in AJAX...", you mumble uncertainly.
 
-You probably know why it happens: JavaScript by its nature is single-threaded. Meaning, everything happens on the **main thread**. UI renders on the main thread (actually main thread is mostly called **UI thread** in browser context), JavaScript executes on the main thread, response to user input events are handled on the main thread. So sometimes it gets so bogged down in script executions that it can't process everything at a reliable framerate. And while some pesky script takes too long to execute, everything else waits... and waits... and waits... **Warning: Unresponsive script**.
+"JavaScript is single-threaded!" the front row shrieks in a frenzy.
 
-![Unresponsive Script](../../images/unresponsive.png)
+"... maybe in a separate context...", you hesitate to continue lest you provoke your audience further.
 
----
+"Down with the blasphemer!" an angry voice reaches from somewhere behind the crowd.
 
-## The workaround
+You gather your strength and make a desperate last appeal, "Let the browser manage it, like a separate tab or an iframe". But it falls on deaf ears.
+"Down with him! Down!" resounds through the crowd.
 
-You, the developer, care about smooth animation, framerate and ultimately pleasant user-experience. You delay execution till the most opportune moment with `setTimeout` and `setInterval`, you [throttle and debounce](https://css-tricks.com/debouncing-throttling-explained-examples/), you ask for at least a window of opportunity every *~16.6ms* with [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame),
-you settle for *if you are not busy* with [`requestIdleCallback`](https://hacks.mozilla.org/2016/11/cooperative-scheduling-with-requestidlecallback/). But if you try to do some heavy lifting (calculating prime numbers is usually given a somewhat impractical but viable example), you stumble into **Warning: Unresponsive script**.
+Bitterly disappointed and indignant you turn to leave the stage when something hits you. A soft splash against your coat and a smell of overripe fruit immediately after. You stop in your tracks and look at it. A tomato ("Not a fruit then", you catch yourself thinking) lies under your feet, brown with rot and smashed into a puddle by the impact, a foul smelling stain is left on your clothes. You can't believe your eyes, these Luddites threw a tomato at you.
 
----
+A second tomato flies past you and then an equally rotten apple falls a good meter short of its target. You hurry to leave, but before disappearing behind the stage you steal a quick glance at the raging crowd. A momentary shock overcomes you. Before you a sea of people, faces distorted, some hurling unsavory objects in your directing, others -- curses in absence of anything more substantial, and this sea... it stands still.
 
-## The answer
+Then suddenly the crowd jerks forward, for a second as if for a few frames. A new barrage of rotten fruit flies into the air... and stops. People's motion grinds to a halt, fruits in the air unimaginably suspended.
 
-Enter **Web Workers**. A Worker gets initialized with a script, runs that script in its own thread in the background and gets back to you with the result or stays at the ready to process any data you may send to it. That way you can leave **UI thread** to UI and offload a time-consuming script to run in the background. Here is how the process looks at a glance:
+Unwilling to tempt fate, you quickly escape the stage, the square and duck into a side street in case someone gets a bright idea to pursue.
 
-&nbsp; |Main Thread | Worker Thread
--------|------------|-------------:
-1 | starts a Worker |
-2 | sends data | receives data
-3 | renders UI, idles, etc.| processes data
-4 | renders UI, idles, etc. | sends result
-5 | receives and processes result | idles
-6 | sends data | receives data
-7 | ... | ...
+<br>
 
-This essentially happens in parallel with **Worker Thread** doing the heavy lifting and **Main thread** (or more generally **Parent** (relative to the **Worker**) **thread**, which doesn't have to be the same as **UI thread**) only having to deal with the end or intermittent result.
+A minute passes in silence, the crowd sporadically moves for a moment and stops. Suddenly an alarm sounds from a nearby textile factory announcing lunch break. A flood of workers rushes out onto the square washes around the frozen people, an occasional worker bumping into one of them, apologizing and rushing on. Soon the square is empty but for the original group, still rooted in place.
 
----
+<br>
+
+In the next 10 minutes their faces relax, the crowd's fervor winds down, the air clears of the flying fruits and the timeflow slowly regains normal fps.
+Bewilderment replaces anger in the people's eyes, then understanding. Some even consider joining up with the workers, who are seemingly immune to time lags.
+
+Then maybe they'll catch the next blasphemer.
+
+~ Why we need workers.
