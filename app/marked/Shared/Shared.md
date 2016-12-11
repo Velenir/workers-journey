@@ -5,6 +5,8 @@ What if you have need for the same code to be executed in its own thread across 
 You create it with:
 
 ```js
+// Parent thread
+
 const sharedWorker = new SharedWorker('sharedworker.js');
 ```
 
