@@ -4,11 +4,26 @@ Let's build a minimalistc example of a **Shared Worker**.
 
 First our `sharedworker.js` code:
 
+<div>
+<input class="hide-panel__control" type="checkbox" id="chk1" checked>
+<label class="hide-panel__label" for="chk1"></label>
+
+<div class="hide-panel__object">
+
 ```js
 !!!include(./Shared/sharedworker.js)!!!
 ```
 
+</div>
+</div>
+
 And interaction logic on the **Main thread**:
+
+<div>
+<input class="hide-panel__control" type="checkbox" id="chk2" checked>
+<label class="hide-panel__label" for="chk2"></label>
+
+<div class="hide-panel__object">
 
 ```html
 !!!include(./Shared/example.html)!!!
@@ -16,6 +31,9 @@ And interaction logic on the **Main thread**:
 !!!include(./Shared/script.js)!!!
 </script>
 ```
+
+</div>
+</div>
 
 Now lets open a few pages/tabs with the code above.
 

@@ -1,0 +1,59 @@
+.hide-panel {
+		
+	&__label {
+		position: relative;
+		padding-left: 1em;
+		display: block;
+		height: 1.4em;
+		pointer-events: none;
+		border-bottom: 1px solid black;
+		user-select: none;
+		
+		&::before, &::after {
+			cursor: pointer;
+			pointer-events: auto;
+		}
+		
+		&::before {
+			content: "▼";
+			position: absolute;
+			bottom: -.9em;
+			left: -.2em;
+			transform-origin: 50% 36%;
+			transition: transform 1s;
+		}
+		
+		&::after {
+			content: "SHOW";
+			display: block;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			cursor: pointer;
+			padding-left: 1em;
+		}
+	}
+	
+	&__control {
+		display: none;
+	}
+		
+	&__object {
+		transition: max-height 1s ease-in-out;
+		max-height: 0;
+		overflow: hidden;
+	}
+	
+	&__control:checked + &__label::before {
+		transform: scale(1,-1);
+	}
+	
+	&__control:checked + &__label::after {
+		content: "HIDE";
+	}
+	
+	&__control:checked ~ &__object {
+		max-height: 200vh;
+	}
+}
