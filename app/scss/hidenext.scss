@@ -58,6 +58,16 @@
 	}
 	
 	&__control:checked ~ &__object {
-		max-height: 200vh;
+		max-height: 150vh;
+		animation: 1s ease-in-out forwards last-frame-overflow;
+	}
+}
+
+@keyframes last-frame-overflow {
+	99.9% {
+		overflow-y: hidden;
+	}
+	100% {
+		overflow-y: auto;
 	}
 }
