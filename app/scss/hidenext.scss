@@ -2,12 +2,12 @@
 		
 	&__label {
 		position: relative;
-		padding-left: 1em;
 		display: block;
 		height: 1.4em;
 		pointer-events: none;
 		border-bottom: 1px solid black;
 		user-select: none;
+		font-family: monospace;
 		
 		&::before, &::after {
 			cursor: pointer;
@@ -15,12 +15,16 @@
 		}
 		
 		&::before {
-			content: "▼";
+			content: "";
 			position: absolute;
-			bottom: -.9em;
-			left: -.2em;
-			transform-origin: 50% 36%;
+			top: .3em;
+			left: -1.5em;
 			transition: transform 1s;
+			border: 3px solid black;
+			border-style: solid solid none none;
+			height: 1em;
+			width: 1em;
+			transform: rotate(135deg) scale(1,1) translate(-.1em, .3em);
 		}
 		
 		&::after {
@@ -29,9 +33,9 @@
 			position: absolute;
 			top: 0;
 			bottom: 0;
-			left: 0;
+			left: -1.5em;
 			cursor: pointer;
-			padding-left: 1em;
+			padding-left: 1.5em;
 		}
 	}
 	
@@ -46,7 +50,7 @@
 	}
 	
 	&__control:checked + &__label::before {
-		transform: scale(1,-1);
+		transform: rotate(135deg) scale(-1,-1) translate(-0.3em, .1em);
 	}
 	
 	&__control:checked + &__label::after {
