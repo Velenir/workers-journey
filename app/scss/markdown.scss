@@ -102,5 +102,9 @@
 	
 	.footnotes {
 		font-size: .9rem;
+		
+		&-sep {
+			margin-top: 1em;
+		}
 	}
 }
