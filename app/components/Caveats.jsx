@@ -18,7 +18,7 @@ export default class Caveats extends React.Component {
 				<Marked mark={caveatsMark}/>
 				<div className="steps-navigation">
 					<Link to="inlining_workers" className="arrow" title="Inlining Workers"/>
-					<Link to="info" className="arrow" title="Info"/>
+					<Link to="resources" className="arrow" title="Resources"/>
 				</div>
 			</div>
 		);

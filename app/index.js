@@ -23,7 +23,7 @@ import WorkerScope from './components/WorkerScope';
 import InliningWorkers from './components/InliningWorkers';
 import Caveats from './components/Caveats';
 import About from './components/About';
-import Info from './components/Info';
+import Resources from './components/Resources';
 import NotFound from './components/NotFound';
 
 // TODO maybe change browserHistory to hashHitory when deploying
@@ -47,7 +47,7 @@ render((
 			<Route path="worker_scope" component={WorkerScope}/>
 			<Route path="inlining_workers" component={InliningWorkers}/>
 			<Route path="caveats" component={Caveats}/>
-			<Route path="info" component={Info}/>
+			<Route path="resources" component={Resources}/>
 			<Route path="about" component={About}/>
 			<Route path="*" component={NotFound}/>
 		</Route>
