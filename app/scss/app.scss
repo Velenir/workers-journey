@@ -82,42 +82,11 @@ $menu-color: rgba(224, 223, 213, 0.11);
 	}
 }
 
-@import './worker-display', './not-found';
-
-.steps-navigation {
-	display: flex;
-	margin: 2em 0 1em;
-	position: fixed;
-	left: 15%;
-	right: 15%;
-	bottom: 8rem;
-	pointer-events: none;
-
-	@supports (position: sticky) {
-		position: sticky;
-		bottom: 3rem;
-		width: 120%;
-		margin-left: -10%;
-	}
-	
-	> .arrow {
-		width: 2.5em;
-		height: 2.5em;
-		border: 0.4em solid black;
-		border-style: solid solid none none;
-		display: inline-block;
-		filter: drop-shadow(0 2px 2px black);
-		pointer-events: auto;
-		
-		&:first-of-type:not(:only-of-type) {
-			transform: rotate(-135deg);
-			margin-right: auto;
-		}
-		
-		&:last-of-type {
-			transform: rotate(45deg);
-			margin-left: auto;
-		}
+.about {
+	.steps-navigation > .arrow {
+		transform: rotate(-135deg);
+		margin-right: auto;
+		margin-left: initial;
 	}
 }
 
