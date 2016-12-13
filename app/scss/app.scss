@@ -1,6 +1,6 @@
 $menu-color: rgba(224, 223, 213, 0.11);
 
-@import './activate-btn';
+@import './activate-btn', './steps-navigation';
 
 .app {
 	&__content {
@@ -120,3 +120,5 @@ $menu-color: rgba(224, 223, 213, 0.11);
 		}
 	}
 }
+
+@import './worker-display', './not-found';
