@@ -4,7 +4,7 @@ Let's build a minimalistc example of a **Dedicated Worker**.
 
 First our `worker.js` code:
 
-<div>
+<div class="hide-panel">
 <input class="hide-panel__control" type="checkbox" id="chk1" checked>
 <label class="hide-panel__label" for="chk1"></label>
 
@@ -19,7 +19,7 @@ First our `worker.js` code:
 
 And interaction logic on the **Main thread**:
 
-<div>
+<div class="hide-panel">
 <input class="hide-panel__control" type="checkbox" id="chk2" checked>
 <label class="hide-panel__label" for="chk2"></label>
 
