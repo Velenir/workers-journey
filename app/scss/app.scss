@@ -1,8 +1,8 @@
 $menu-color: rgba(224, 223, 213, 0.11);
 
-.app {
-	position: relative;
+@import './activate-btn';
 
+.app {
 	&__content {
 		width: 60%;
 		max-width: 800px;
@@ -11,9 +11,8 @@ $menu-color: rgba(224, 223, 213, 0.11);
 	}
 
 	&__menu {
-		position: absolute;
+		position: relative;
 		position: sticky;
-		left: 0;
 		top: .5em;
 		float: left;
 		transition: transform .7s linear;
@@ -66,7 +65,7 @@ $menu-color: rgba(224, 223, 213, 0.11);
 	}
 }
 
-@import './activate-btn', './worker-display', './not-found';
+@import './worker-display', './not-found';
 
 .steps-navigation {
 	display: flex;
