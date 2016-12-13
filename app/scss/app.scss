@@ -65,6 +65,23 @@ $menu-color: rgba(224, 223, 213, 0.11);
 	}
 }
 
+.resources {
+	hr:first-of-type {
+		margin: 2em -4em;
+	}
+	
+	ol {
+		text-align: initial;
+		padding-left: 0;
+		margin-top: 2em;
+	}
+	
+	li {
+		padding-left: .5em;
+		margin-bottom: .2em;
+	}
+}
+
 @import './worker-display', './not-found';
 
 .steps-navigation {
