@@ -3,19 +3,18 @@ import { Route, IndexRoute } from 'react-router';
 import GenericContent from '../components/GenericContent';
 
 import Caveats from '../components/Caveats';
-import DedicatedExample from '../components/DedicatedExample';
-import SharedExample from '../components/SharedExample';
+import GenericWorkerExample from '../components/GenericWorkerExample';
 
-
-// md is relative to '../marked'
+const req = require.context("../marked", true, /.md$/);
+// mark is relative to '../marked'
 const pages = [
 	{path: "/", menu_item: "Home", mainClass: "home", mark: "./Home/Home.md"},
 	{path: "/intro", menu_item: "Introduction", mainClass: "intro", mark: "./Intro/Intro.md"},
 	{path: "/worker_types", menu_item: "Worker Types", mainClass: "worker-types", mark: "./WorkerTypes/WorkerTypes.md"},
 	{path: "/dedicated_worker", menu_item: "Dedicated", link_title: "Dedicated Worker", mainClass: "worker-dedicated", mark: "./Dedicated/Dedicated.md"},
-	{path: "/dedicated_worker/example", menu_item: "Example", link_title: "Dedicated Worker Example", mainClass: "worker-dedicated__example", mark: "./Dedicated/DedicatedExample.md", component: DedicatedExample},
+	{path: "/dedicated_worker/example", menu_item: "Example", link_title: "Dedicated Worker Example", mainClass: "worker-dedicated__example", mark: "./Dedicated/DedicatedExample.md", component: GenericWorkerExample},
 	{path: "/shared_worker", menu_item: "Shared", link_title: "Shared Worker", mainClass: "worker-shared", mark: "./Shared/Shared.md"},
-	{path: "/shared_worker/example", menu_item: "Example", link_title: "Shared Worker Example", mainClass: "worker-shared__example", mark: "./Shared/SharedExample.md", component: SharedExample},
+	{path: "/shared_worker/example", menu_item: "Example", link_title: "Shared Worker Example", mainClass: "worker-shared__example", mark: "./Shared/SharedExample.md", component: GenericWorkerExample},
 	{path: "/worker_scope", menu_item: "Scope", link_title: "Worker Scope", mainClass: "worker-scope", mark: "./WorkerScope/WorkerScope.md"},
 	{path: "/inlining_workers", menu_item: "Inlining", link_title: "Inlining Workers", mainClass: "inlining-workers", mark: "./InliningWorkers/InliningWorkers.md"},
 	{path: "/caveats", menu_item: "Caveats", mainClass: "caveats", mark: "./Caveats/Caveats.md", component: Caveats},
@@ -23,13 +22,7 @@ const pages = [
 	{path: "/about", menu_item: "About", mainClass: "about", mark: "./About/About.md"}
 ];
 
-const req = require.context("../marked", true, /.md$/);
 
-function getMark(menu_item) {
-	menu_item = menu_item.replace(" ", "");
-	menu_item = `./${menu_item}/${menu_item}.md`;
-	return req(menu_item);
-}
 
 
 const generics = pages.map((page, i, a) => {
