@@ -8,6 +8,16 @@ $menu-color: rgba(224, 223, 213, 0.11);
 		max-width: 800px;
 		margin: 0 auto;
 		padding: 1em;
+		
+		&__main {
+			&--last {
+				.steps-navigation > .arrow {
+					transform: rotate(-135deg);
+					margin-right: auto;
+					margin-left: initial;
+				}
+			}
+		}
 	}
 
 	&__menu {
@@ -79,14 +89,6 @@ $menu-color: rgba(224, 223, 213, 0.11);
 	li {
 		padding-left: .5em;
 		margin-bottom: .2em;
-	}
-}
-
-.about {
-	.steps-navigation > .arrow {
-		transform: rotate(-135deg);
-		margin-right: auto;
-		margin-left: initial;
 	}
 }
 
