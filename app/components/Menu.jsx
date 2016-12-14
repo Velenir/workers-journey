@@ -34,7 +34,7 @@ class Menu extends React.Component {
 		// 	return <li className="app__menu__item" key={i}><NavLink onlyActiveOnIndex={true} to={path}>{menu_item}</NavLink></li>;
 		// });
 		let lastDepth = 1, nestLevel = 0, fillingArray, visiblyNestedAtLevel;
-		const menuItems = pages.reduce((prev, {path, menu_item, visiblyNested}, i, a) => {
+		const menuItems = pages.reduce((prev, {path, menu_item, visiblyNested}, i) => {
 			const currentDepth = path.split("/").length - 1;
 			
 			if(!fillingArray) fillingArray = prev;
@@ -92,7 +92,7 @@ class Menu extends React.Component {
 			// 	prev.push(<li className="app__menu__item" key={i}><NavLink onlyActiveOnIndex={true} to={path}>{menu_item}</NavLink></li>);
 			// }
 			
-			fillingArray.push(<li className="app__menu__item" key={fillingArray.length}><NavLink onlyActiveOnIndex={true} to={path}>{menu_item}</NavLink></li>);
+			fillingArray.push(<li className="app__menu__item" key={fillingArray.length}><NavLink onlyActiveOnIndex={path==="/"} to={path}>{menu_item}</NavLink></li>);
 			
 			lastDepth = currentDepth;
 			
