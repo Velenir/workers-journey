@@ -1,3 +1,5 @@
+### Why we need workers.
+
 "JavaScript is single-threaded", cries the crowd.
 
 "But couldn't we... like in AJAX...", you mumble uncertainly.
@@ -29,5 +31,3 @@ In the next 10 minutes their faces relax, the crowd's fervor winds down, the air
 Bewilderment replaces anger in the people's eyes, then understanding. Some even consider joining up with the workers, who are seemingly immune to time lags.
 
 Then maybe they'll catch the next blasphemer.
-
-~ Why we need workers.

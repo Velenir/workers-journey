@@ -1,6 +1,6 @@
 # Introduction
 
-Ignore the previous page.
+Why we actually need **Workers**?
 
 ## The problem
 
