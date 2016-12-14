@@ -33,12 +33,13 @@ class Menu extends React.Component {
 		// const menuItems = pages.map(({path, menu_item}, i) => {
 		// 	return <li className="app__menu__item" key={i}><NavLink onlyActiveOnIndex={true} to={path}>{menu_item}</NavLink></li>;
 		// });
-		let lastDepth = 1, nestLevel = 0, fillingArray;
-		const menuItems = pages.reduce((prev, {path, menu_item, visNested}, i, a) => {
+		let lastDepth = 1, nestLevel = 0, fillingArray, visiblyNestedAtLevel;
+		const menuItems = pages.reduce((prev, {path, menu_item, visiblyNested}, i, a) => {
 			const currentDepth = path.split("/").length - 1;
 			
 			if(!fillingArray) fillingArray = prev;
-			if(currentDepth > lastDepth || visNested) {
+			
+			if(currentDepth > lastDepth) {
 				console.log("DEEPER", currentDepth - lastDepth);
 				// prev.push(fillingArray = []);
 				// fillingArray = prev[prev.length - 1];
@@ -49,6 +50,11 @@ class Menu extends React.Component {
 				
 				
 				let arrDepth = currentDepth - lastDepth;
+				// if(visiblyNested) {
+				// 	++arrDepth;
+				// 	visiblyNestedAtLevel = nestLevel + arrDepth;
+				// }
+				
 				nestLevel += arrDepth;
 				while(arrDepth--) {
 					console.log("DOWN");
@@ -60,7 +66,13 @@ class Menu extends React.Component {
 				// let arrDepth = nestLevel;
 				nestLevel += currentDepth - lastDepth;
 				
+				if(nestLevel === visiblyNestedAtLevel && !visiblyNested) {
+					console.log("at visiblyNested level");
+					--nestLevel;
+				}
+				
 				let arrDepth = nestLevel;
+				
 				
 				fillingArray = prev;
 				
@@ -69,6 +81,9 @@ class Menu extends React.Component {
 					fillingArray = fillingArray[fillingArray.length - 1];
 				}
 				// fillingArray = prev;
+			} else if(visiblyNested) {
+				visiblyNestedAtLevel = ++nestLevel;
+				fillingArray.push(fillingArray = []);
 			}
 			
 			// if(nestLevel && i > 0) {
@@ -103,32 +118,6 @@ class Menu extends React.Component {
 					<span className ="activate-btn__line"/>
 					<span className ="activate-btn__line"/>
 				</div>
-				<ul className="app__menu__list">
-					<li className="app__menu__item"><NavLink onlyActiveOnIndex={true} to="/">Home</NavLink></li>
-					<li className="app__menu__item"><NavLink to="/intro">Introduction</NavLink></li>
-					<li className="app__menu__item"><NavLink to="/worker_types">Worker Types</NavLink></li>
-					<li>
-						<ul className="app__menu__list app__menu__list--nested">
-							<li className="app__menu__item"><NavLink onlyActiveOnIndex={true} to="/dedicated_worker">Dedicated</NavLink></li>
-							<li>
-								<ul className="app__menu__list app__menu__list--nested">
-									<li className="app__menu__item"><NavLink to="/dedicated_worker/example">Example</NavLink></li>
-								</ul>
-							</li>
-							<li className="app__menu__item"><NavLink onlyActiveOnIndex={true} to="/shared_worker">Shared</NavLink></li>
-							<li>
-								<ul className="app__menu__list app__menu__list--nested">
-									<li className="app__menu__item"><NavLink to="/shared_worker/example">Example</NavLink></li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-					<li className="app__menu__item"><NavLink to="/worker_scope">Worker Scope</NavLink></li>
-					<li className="app__menu__item"><NavLink to="/inlining_workers">Inlining</NavLink></li>
-					<li className="app__menu__item"><NavLink to="/caveats">Caveats</NavLink></li>
-					<li className="app__menu__item"><NavLink to="/resources">Resources</NavLink></li>
-					<li className="app__menu__item"><NavLink to="/about">About</NavLink></li>
-				</ul>
 				<ul className="app__menu__list">
 					{menuItems}
 				</ul>
