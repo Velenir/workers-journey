@@ -1,8 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router';
-import Marked from './Marked';
-
-import caveatsMark from '../marked/Caveats/Caveats.md';
+import GenericContent from './GenericContent';
 
 
 export default class Caveats extends React.Component {
@@ -13,14 +10,9 @@ export default class Caveats extends React.Component {
 	}
 	
 	render() {
+		const {mainClass, links, mark} = this.props.route;
 		return (
-			<div className="app__content__main caveats">
-				<Marked mark={caveatsMark}/>
-				<div className="steps-navigation">
-					<Link to="inlining_workers" className="arrow" title="Inlining Workers"/>
-					<Link to="resources" className="arrow" title="Resources"/>
-				</div>
-			</div>
+			<GenericContent route={{mainClass, links, mark}}/>
 		);
 	}
 
