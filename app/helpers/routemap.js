@@ -2,6 +2,10 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import GenericContent from '../components/GenericContent';
 
+import Caveats from '../components/Caveats';
+import DedicatedExample from '../components/DedicatedExample';
+import SharedExample from '../components/SharedExample';
+
 
 // md is relative to '../marked'
 const pages = [
@@ -9,12 +13,12 @@ const pages = [
 	{path: "/intro", menu_item: "Introduction", mainClass: "intro", md: "./Intro/Intro.md"},
 	{path: "/worker_types", menu_item: "Worker Types", mainClass: "worker-types", md: "./WorkerTypes/WorkerTypes.md"},
 	{path: "/dedicated_worker", menu_item: "Dedicated", link_title: "Dedicated Worker", mainClass: "worker-dedicated", md: "./Dedicated/Dedicated.md"},
-	{path: "/dedicated_worker/example", menu_item: "Example", link_title: "Dedicated Worker Example", mainClass: "worker-dedicated__example", md: "./Dedicated/DedicatedExample.md"},
+	{path: "/dedicated_worker/example", menu_item: "Example", link_title: "Dedicated Worker Example", mainClass: "worker-dedicated__example", md: "./Dedicated/DedicatedExample.md", component: DedicatedExample},
 	{path: "/shared_worker", menu_item: "Shared", link_title: "Shared Worker", mainClass: "worker-shared", md: "./Shared/Shared.md"},
-	{path: "/shared_worker/example", menu_item: "Example", link_title: "Shared Worker Example", mainClass: "worker-shared__example", md: "./Shared/SharedExample.md"},
+	{path: "/shared_worker/example", menu_item: "Example", link_title: "Shared Worker Example", mainClass: "worker-shared__example", md: "./Shared/SharedExample.md", component: SharedExample},
 	{path: "/worker_scope", menu_item: "Scope", link_title: "Worker Scope", mainClass: "worker-scope", md: "./WorkerScope/WorkerScope.md"},
 	{path: "/inlining_workers", menu_item: "Inlining", link_title: "Inlining Workers", mainClass: "inlining-workers", md: "./InliningWorkers/InliningWorkers.md"},
-	{path: "/caveats", menu_item: "Caveats", mainClass: "caveats", md: "./Caveats/Caveats.md"},
+	{path: "/caveats", menu_item: "Caveats", mainClass: "caveats", md: "./Caveats/Caveats.md", component: Caveats},
 	{path: "/resources", menu_item: "Resources", mainClass: "resources", md: "./Resources/Resources.md"},
 	{path: "/about", menu_item: "About", mainClass: "about", md: "./About/About.md"}
 ];
