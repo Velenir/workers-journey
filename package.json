@@ -47,7 +47,7 @@
     "markdown-it-include": "0.0.2",
     "markdown-it-link-attributes": "^1.0.0",
     "markdown-it-loader": "^0.5.0",
-    "node-sass": "^3.13.0",
+    "node-sass": "^4.0.0",
     "postcss-loader": "^1.1.1",
     "pug": "^2.0.0-beta6",
     "pug-html-loader": "^1.0.9",
