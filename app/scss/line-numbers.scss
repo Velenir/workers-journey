@@ -1,15 +1,16 @@
-$grid-color: #999 !default;
-$padding-left: 3.8em !default;
-$padding-right: 0.8em !default;
-$number-width: 3em !default;
-$border-left: 5px solid #558abb !default;
-
 .line-numbers {
+	$numbers-cutoff-color: #999 !default;
+	$padding-left: 3.8em !default;
+	$padding-right: 0.8em !default;
+	$number-width: 3em !default;
+	$border-left: 5px solid #558abb !default;
+	$box-shadow: inset 0 0 1px #101010 !default;
+
 	padding-left: $padding-left;
 	border-left: $border-left;
 	overflow: auto;
 	display: flex;
-	box-shadow: inset 0 0 1px #101010;
+	box-shadow: $box-shadow;
 	
 	*, ::before, ::after {
 		box-sizing: border-box;
@@ -33,22 +34,20 @@ $border-left: 5px solid #558abb !default;
 		user-select: none;
 		counter-reset: linenumber;
 
-		/* box-shadow: inset 0 0 1px $grid-color; */
-
 		> span {
 			pointer-events: none;
 			display: block;
 			counter-increment: linenumber;
-			box-shadow: 0 1px 0 transparentize($grid-color, .5);
+			box-shadow: 0 1px 0 transparentize($numbers-cutoff-color, .5);
 
 			&::before {
 				content: counter(linenumber);
-				color: $grid-color;
+				color: $numbers-cutoff-color;
 				display: block;
 				padding-right: $padding-right;
 				text-align: right;
 				width: $number-width;
-				border-right: 1px solid $grid-color;
+				border-right: 1px solid $numbers-cutoff-color;
 			}
 		}
 	}

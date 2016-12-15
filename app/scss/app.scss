@@ -1,11 +1,16 @@
-$menu-color: rgba(224, 223, 213, 0.11);
-
 @import './activate-btn', './steps-navigation';
 
 .app {
+	$menu-color: rgba(224, 223, 213, 0.11) !default;
+	$menu-item-color: #696464 !default;
+	$menu-item-color-active: black !default;
+	$menu-transition: .7s linear !default;
+	$content-max-width: 800px !default;
+	$content-width: 60% !default;
+	
 	&__content {
-		width: 60%;
-		max-width: 800px;
+		width: $content-width;
+		max-width: $content-max-width;
 		margin: 0 auto;
 		padding: 1em;
 		
@@ -25,7 +30,7 @@ $menu-color: rgba(224, 223, 213, 0.11);
 		position: sticky;
 		top: .5em;
 		float: left;
-		transition: transform .7s linear;
+		transition: transform $menu-transition;
 		background-color: $menu-color;
 		filter: drop-shadow(0 0 5px gray);
 		border-bottom-right-radius: 10%;
@@ -63,11 +68,11 @@ $menu-color: rgba(224, 223, 213, 0.11);
 			
 			> a {
 				text-decoration: none;
-				color: #696464;
+				color: $menu-item-color;
 			}
 			
 			> .active {
-				color: black;
+				color: $menu-item-color-active;
 				font-weight: bold;
 				text-decoration: underline;
 			}
@@ -92,4 +97,4 @@ $menu-color: rgba(224, 223, 213, 0.11);
 	}
 }
 
-@import './worker-display', './not-found';
+@import './scss/markdown', './worker-display', './not-found';

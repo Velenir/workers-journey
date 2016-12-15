@@ -1,4 +1,5 @@
 .hide-panel {
+	$hide-panel-transition: 1s ease-in-out !default;
 		
 	&__label {
 		position: relative;
@@ -44,7 +45,7 @@
 	}
 		
 	&__object {
-		transition: max-height 1s ease-in-out;
+		transition: max-height $hide-panel-transition;
 		max-height: 0;
 		overflow: hidden;
 	}
@@ -59,7 +60,7 @@
 	
 	&__control:checked ~ &__object {
 		max-height: 150vh;
-		animation: 1s ease-in-out forwards last-frame-overflow;
+		animation: $hide-panel-transition forwards last-frame-overflow;
 	}
 }
 

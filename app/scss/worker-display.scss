@@ -3,8 +3,8 @@
 	font-size: 1.1rem;
 	font-family: monospace;
 	
-	$active-displace: 2px;
-	$hover-background: #f3eeee;
+	$active-displace: 2px !default;
+	$hover-background: #f3eeee !default;
 	
 	button {
 		background: none;

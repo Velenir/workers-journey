@@ -1,4 +1,6 @@
 .steps-navigation {
+	$steps-navigation-arrows-color: black !default;
+
 	display: flex;
 	margin: 2em 0 1em;
 	position: fixed;
@@ -17,10 +19,10 @@
 	> .arrow {
 		width: 2.5em;
 		height: 2.5em;
-		border: 0.4em solid black;
+		border: 0.4em solid $steps-navigation-arrows-color;
 		border-style: solid solid none none;
 		display: inline-block;
-		filter: drop-shadow(0 2px 2px black);
+		filter: drop-shadow(0 2px 2px $steps-navigation-arrows-color);
 		pointer-events: auto;
 		
 		&:first-of-type:not(:only-of-type) {

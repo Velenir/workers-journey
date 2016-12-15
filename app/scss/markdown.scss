@@ -1,8 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-@import './hidenext';
+@import './hidenext', './scss/line-numbers';
+
+$markdown-font: 'Open Sans' !default;
 
 .markdown {
-	font-family: 'Open Sans', sans-serif;
+	$home-background: #f1f0e6 !default;
+	$link-color: #0349a7 !default;
+	$link-color-visited: #1d0ed0 !default;
+	$table-border-color: #ddd !default;
+	$table-odd-cell-color: #f3efef !default;
+	$table-min-width: 500px !default;
+	$table-fallback-width: 80% !default;
+
+	font-family: $markdown-font, sans-serif;
 	margin-bottom: 2em;
 	
 	.home & {
@@ -10,7 +20,7 @@
 		border-radius: 10px;
 		box-shadow: 1px 3px 3px gray, inset 0 2px 6px gray;
 		padding: 1em;
-		background: #f1f0e6;
+		background: $home-background;
 		
 		h3 {
 			text-align: center;
@@ -49,10 +59,10 @@
 
 	a {
 		text-decoration: none;
-		color: #0349a7;
+		color: $link-color;
 
 		&:visited {
-			color: #1d0ed0;
+			color: $link-color-visited;
 		}
 		
 		&:hover {
@@ -61,10 +71,10 @@
 	}
 	
 	table {
-		width: 80%;
+		width: $table-fallback-width;
 		width: fit-content;
 		max-width: 100%;
-		min-width: 500px;
+		min-width: $table-min-width;
 		margin: 2em auto;
 		border-spacing: 0;
 		border-collapse: collapse;
@@ -75,15 +85,15 @@
 				> th, > td {
 					padding: .5em;
 					vertical-align: top;
-					border-top: 1px solid #ddd;
-					border-right: 1px solid #ddd;
+					border-top: 1px solid $table-border-color;
+					border-right: 1px solid $table-border-color;
 				}
 			}
 		}
 
 		> thead > tr > th {
 			vertical-align: bottom;
-			border-bottom: 2px solid #ddd;
+			border-bottom: 2px solid $table-border-color;
 		}
 
 		> thead:first-child {
@@ -96,7 +106,7 @@
 		
 		> tbody > tr:nth-child(odd) {
 			> td, > th {
-				background-color: #f3efef;
+				background-color: $table-odd-cell-color;
 			}
 		}
 	}
