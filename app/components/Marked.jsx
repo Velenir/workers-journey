@@ -3,11 +3,9 @@ import React from 'react';
 import 'style!css!highlight.js/styles/github.css';
 
 function addLineNumbers(el) {
-	// console.log("adding line-numbers to", el);
 	el.parentNode.classList.add("line-numbers");
 	
 	const lines = el.textContent.split("\n").length - 1;
-	// console.log("found", lines, "lines");
 	
 	const linesRow = document.createElement("span");
 	linesRow.classList.add("line-numbers__row");
@@ -21,10 +19,18 @@ function addLineNumbers(el) {
 }
 
 class Marked extends React.Component {
-	componentDidMount() {
+	markCodeBlocks = () => {
 		for (let el of this.marked.querySelectorAll("[class*=language-]")) {
 			addLineNumbers(el);
 		}
+	}
+	
+	componentDidMount() {
+		this.markCodeBlocks();
+	}
+	
+	componentDidUpdate() {
+		this.markCodeBlocks();
 	}
 	
 	render() {
