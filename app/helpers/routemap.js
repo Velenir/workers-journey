@@ -6,7 +6,7 @@ import Caveats from '../components/Caveats';
 import GenericWorkerExample from '../components/GenericWorkerExample';
 
 const req = require.context("../marked", true, /.md$/);
-// mark is relative to '../marked'
+// .mark is relative to '../marked'
 const pages = [
 	{path: "/", menu_item: "Home", mainClass: "home", mark: "./Home/Home.md"},
 	{path: "/intro", menu_item: "Introduction", mainClass: "intro", mark: "./Intro/Intro.md"},
@@ -48,35 +48,3 @@ const generics = pages.map((page, i, a) => {
 
 
 export {pages, generics as default};
-
-// onlyActiveOnIndex={true} to="/">Home
-// to="/intro">Introduction
-// to="/worker_types">Worker Types
-// onlyActiveOnIndex={true} to="/dedicated_worker">Dedicated
-// to="/dedicated_worker/example">Example
-// onlyActiveOnIndex={true} to="/shared_worker">Shared
-// to="/shared_worker/example">Example
-// to="/worker_scope">Worker Scope
-// to="/inlining_workers">Inlining
-// to="/caveats">Caveats
-// to="/resources">Resources
-// to="/about">About
-
-// <li className="app__menu__item"><NavLink onlyActiveOnIndex={true} to="/">Home</NavLink></li>
-// <li className="app__menu__item"><NavLink to="/intro">Introduction</NavLink></li>
-// <li className="app__menu__item"><NavLink to="/worker_types">Worker Types</NavLink></li>
-// <ul className="app__menu__list app__menu__list--nested">
-// 	<li className="app__menu__item"><NavLink onlyActiveOnIndex={true} to="/dedicated_worker">Dedicated</NavLink></li>
-// 	<ul className="app__menu__list app__menu__list--nested">
-// 		<li className="app__menu__item"><NavLink to="/dedicated_worker/example">Example</NavLink></li>
-// 	</ul>
-// 	<li className="app__menu__item"><NavLink onlyActiveOnIndex={true} to="/shared_worker">Shared</NavLink></li>
-// 	<ul className="app__menu__list app__menu__list--nested">
-// 		<li className="app__menu__item"><NavLink to="/shared_worker/example">Example</NavLink></li>
-// 	</ul>
-// </ul>
-// <li className="app__menu__item"><NavLink to="/worker_scope">Worker Scope</NavLink></li>
-// <li className="app__menu__item"><NavLink to="/inlining_workers">Inlining</NavLink></li>
-// <li className="app__menu__item"><NavLink to="/caveats">Caveats</NavLink></li>
-// <li className="app__menu__item"><NavLink to="/resources">Resources</NavLink></li>
-// <li className="app__menu__item"><NavLink to="/about">About</NavLink></li>
