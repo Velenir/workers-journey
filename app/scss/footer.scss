@@ -1,0 +1,14 @@
+.main-footer {
+	ul {
+		display: flex;
+		flex-flow: column wrap;
+		height: 100%;
+		align-content: flex-start;
+		height: 106px;
+		list-style: none;
+	}
+	
+	li {
+		margin-left: 10px;
+	}
+}

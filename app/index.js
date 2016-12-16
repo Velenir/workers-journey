@@ -13,6 +13,7 @@ if(typeof process !== "undefined" && process.env.NODE_ENV === "production") {
 
 import App from './components/App';
 import NotFound from './components/NotFound';
+import Footer from './components/Footer';
 
 // TODO maybe change browserHistory to hashHitory when deploying
 
@@ -27,3 +28,5 @@ render((
 	</Router>
 ),
 document.getElementById("app"));
+
+render(<Footer history= {history}/>, document.getElementById("footer-mount"));

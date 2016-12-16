@@ -119,7 +119,7 @@ const  indexTemplateOpts = {
 	template: '!!pug!./app/index.pug',
 	inject: false,
 	mobile: true,
-	appMountId: "app"
+	appMountId: ["app", "footer-mount"]
 };
 
 // Detect how npm is run and branch based on that
