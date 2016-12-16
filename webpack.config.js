@@ -114,6 +114,13 @@ const common = {
 
 
 let config;
+const  indexTemplateOpts = {
+	title: 'Worker\'s Journey',
+	template: '!!pug!./app/index.pug',
+	inject: false,
+	mobile: true,
+	appMountId: "app"
+};
 
 // Detect how npm is run and branch based on that
 switch(process.env.npm_lifecycle_event) {
@@ -146,16 +153,15 @@ case 'stats':
 			entries: ['react']
 		}),
 		parts.minify(),
-		parts.indexTemplate({
-			title: 'Worker\'s Journey',
-			template: '!!pug!./app/index.pug',
-			inject: false,
-			mobile: true,
-			appMountId: "app",
-			// inline: 'style',	// inline files from "style" chunk
-			// excludeJSWithCSS: true,	// don't include any chunks with css in scripts (when .js is a byproduct of already extracted .css)
-			excludeJSChunks: ['style']	// don't include specific chunks in scripts (when .js is a byproduct of already extracted .css)
-		}),
+		parts.indexTemplate(
+			Object.assign({},
+				indexTemplateOpts,
+				{
+					// inline: 'style',	// inline files from "style" chunk
+					// excludeJSWithCSS: true,	// don't include any chunks with css in scripts (when .js is a byproduct of already extracted .css)
+					excludeJSChunks: ['style']	// don't include specific chunks in scripts (when .js is a byproduct of already extracted .css)
+				})
+		),
 		parts.extractCSS(PATHS.style),
 		parts.optimizeImages(PATHS.images),
 		parts.deduplicate()
@@ -168,13 +174,7 @@ default:
 			devtool: 'eval-source-map'
 		},
 
-		parts.indexTemplate({
-			title: 'Worker\'s Journey',
-			template: '!!pug!./app/index.pug',
-			inject: false,
-			mobile: true,
-			appMountId: "app"
-		}),
+		parts.indexTemplate(indexTemplateOpts),
 		parts.setupCSS(PATHS.style),
 		parts.displayImages(PATHS.images),
 		parts.devServer({
