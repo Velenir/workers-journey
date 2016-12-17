@@ -18,9 +18,8 @@ export default class Caveats extends React.Component {
 	}
 	
 	render() {
-		const {mainClass, links, mark} = this.props.route;
 		return (
-			<GenericContent route={{mainClass, links, mark}}/>
+			<GenericContent {...this.props.route}/>
 		);
 	}
 

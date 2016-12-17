@@ -47,9 +47,8 @@ class GenericWorkerExample extends React.Component {
 	}
 	
 	render() {
-		const {mainClass, links, mark} = this.props.route;
 		return (
-			<GenericContent route={{mainClass, links, mark}}>
+			<GenericContent {...this.props.route}>
 				<div className="worker-display" dangerouslySetInnerHTML={{__html: this.html}} ref={c => this.display = c}/>
 			</GenericContent>
 		);
