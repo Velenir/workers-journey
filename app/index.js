@@ -23,8 +23,10 @@ import routes from './helpers/routemap';
 
 render((
 	<Router history={history} render={applyRouterMiddleware(useScroll())}>
-		<Route path="/" component={App} children={routes}/>
+		<Route path="/" component={App}>
+			{routes}
 		<Route path="*" component={NotFound}/>
+	</Route>
 	</Router>
 ),
 document.getElementById("app"));
