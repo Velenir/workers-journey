@@ -1,5 +1,9 @@
 @import './activate-btn', './steps-navigation';
 
+.app-wrapper {
+	height: 100%;
+}
+
 .app {
 	$menu-color: rgba(224, 223, 213, 0.11) !default;
 	$menu-item-color: #696464 !default;
@@ -7,14 +11,25 @@
 	$menu-transition: .7s linear !default;
 	$content-max-width: 800px !default;
 	$content-width: 60% !default;
+
+	height: 100%;
 	
 	&__content {
 		width: $content-width;
 		max-width: $content-max-width;
 		margin: 0 auto;
 		padding: 1em;
+		height: 100%;
 		
 		&__main {
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			
+			.markdown {
+				flex-grow: 1;
+			}
+			
 			&--last {
 				.steps-navigation > .arrow {
 					transform: rotate(-135deg);
