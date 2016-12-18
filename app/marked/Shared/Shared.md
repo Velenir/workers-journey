@@ -147,5 +147,3 @@ const sharedWorker2 = new SharedWorker('sharedworker.js', "worker2");
 Now there are two workers running, executing the same script and shared between two parents.
 
 On to a working example we go.
-
----

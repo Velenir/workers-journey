@@ -6,7 +6,7 @@ import Caveats from '../components/Caveats';
 import GenericWorkerExample from '../components/GenericWorkerExample';
 
 const req = require.context("../marked", true, /.md$/);
-// .mark is relative to '../marked'
+// mark is relative to '../marked'
 const pages = [
 	{path: "/", menu_item: "Home", mainClass: "home", mark: "./Home/Home.md"},
 	{path: "/intro", menu_item: "Introduction", mainClass: "intro", mark: "./Intro/Intro.md"},
@@ -26,7 +26,7 @@ const pages = [
 
 
 const generics = pages.map((page, i, a) => {
-	const props = Object.assign({component: GenericContent, links: []}, page, {mark: req(page.mark)});
+	const props = Object.assign({component: GenericContent, links: []}, page, {mark: req(page.mark), pageNumber: i + 1});
 
 	if(i > 0) {
 		const {path, menu_item, link_title: title = menu_item} = a[i-1];
@@ -46,5 +46,7 @@ const generics = pages.map((page, i, a) => {
 	return <RouteComponent {...props} key={i}/>;
 });
 
+const pagesTotal = pages.length;
 
-export {pages, generics as default};
+
+export {pages, pagesTotal, generics as default};

@@ -65,5 +65,3 @@ const blob = new Blob([str]);
 ## importScripts
 
 Inside a **Worker** importScripts accepts the same `objectURL` and `dataURI` created from a **Blob**. Therefore it is possible to send a string (or a **Blob**, or even a **Transferable** ArrayBuffer to later be turned into `dataURI` with `FileReaderSync.readAsDataURL`) with additional functions and variables from the **Parent thread** to extend the **Worker** functionality on demand (as you remember **importScripts** adds to the global scope).
-
----

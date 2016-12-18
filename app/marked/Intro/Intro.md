@@ -34,5 +34,3 @@ Enter **Web Workers**. A Worker gets initialized with a script, runs that script
 7 | ... | ...
 
 This essentially happens in parallel with **Worker Thread** doing the heavy lifting and **Main thread** (or more generally **Parent** (relative to the **Worker**) **thread**, which doesn't have to be the same as **UI thread**) only having to deal with the end or intermittent result.
-
----

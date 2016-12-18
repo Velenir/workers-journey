@@ -14,5 +14,3 @@ Other worker types are:
 
 + **Audio Worker** — part of [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API). It allows audio processing in a background thread.
 + [**Chrome Worker**](https://developer.mozilla.org/en-US/docs/Web/API/ChromeWorker) — You will only ever encounter it when developing an add-on for Firefox.
-
----
