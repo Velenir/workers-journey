@@ -154,13 +154,12 @@ case 'stats':
 		}),
 		parts.minify(),
 		parts.indexTemplate(
-			Object.assign({},
-				indexTemplateOpts,
-				{
-					// inline: 'style',	// inline files from "style" chunk
-					// excludeJSWithCSS: true,	// don't include any chunks with css in scripts (when .js is a byproduct of already extracted .css)
-					excludeJSChunks: ['style']	// don't include specific chunks in scripts (when .js is a byproduct of already extracted .css)
-				})
+			indexTemplateOpts,
+			{
+				// inline: 'style',	// inline files from "style" chunk
+				// excludeJSWithCSS: true,	// don't include any chunks with css in scripts (when .js is a byproduct of already extracted .css)
+				excludeJSChunks: ['style']	// don't include specific chunks in scripts (when .js is a byproduct of already extracted .css)
+			}
 		),
 		parts.extractCSS(PATHS.style),
 		parts.optimizeImages(PATHS.images),

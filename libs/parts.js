@@ -53,7 +53,16 @@ exports.devServer = function(options) {
 	};
 };
 
-exports.indexTemplate = function(options) {
+exports.indexTemplate = function() {
+	let options = {};
+	if(arguments.length <= 1) {
+		options = arguments[0];
+	} else {
+		const args = Array.prototype.slice.call(arguments);
+		args.unshift(options);
+		Object.assign.apply(null, args);
+	}
+		
 	return {
 		plugins: [
 			new HtmlWebpackPlugin(options)
