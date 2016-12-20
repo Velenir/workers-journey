@@ -5,7 +5,8 @@
 }
 
 .app {
-	$menu-color: rgba(224, 223, 213, 0.11) !default;
+	$menu-width: 200px;
+	$menu-color: rgba(224, 223, 213, 0.83) !default;
 	$menu-item-color: #696464 !default;
 	$menu-item-color-active: black !default;
 	$menu-transition: .7s linear !default;
@@ -49,7 +50,7 @@
 	}
 
 	&__menu {
-		position: relative;
+		position: absolute;
 		position: sticky;
 		top: .5em;
 		float: left;
@@ -58,9 +59,12 @@
 		filter: drop-shadow(0 0 5px gray);
 		border-bottom-right-radius: 10%;
 		margin-top: .5em;
+		margin-left: -$menu-width;
+		width: $menu-width;
+		z-index: 999;
 		
-		&.closed {
-			transform: translateX(-100%);
+		&.open {
+			transform: translateX(100%);
 		}
 		
 		&__activate {
