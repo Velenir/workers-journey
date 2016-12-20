@@ -1,3 +1,5 @@
+$footer-list-margin: 3px .5em 1px !default;
+
 .main-footer {
 	$link-border-color: #dacbcb !default;
 
@@ -7,7 +9,7 @@
 	.site-map {
 		list-style: none;
 		padding-left: 1em;
-		margin: .5em;
+		margin: $footer-list-margin;
 		
 		&--pages > li {
 			border-bottom: 1px solid $link-border-color;

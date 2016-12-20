@@ -11,7 +11,9 @@ const GenericContent = ({children, ...rest}) => {
 		<div className={`app__content__main ${mainClass}`}>
 			<Marked mark={mark}/>
 			{children}
-			<div className="page-number">{pageNumber < 10 ? "0" + pageNumber : pageNumber}/{pagesTotal}</div>
+			<div className="page-number">
+				<span className="page-number__indicator">{pageNumber < 10 ? "0" + pageNumber : pageNumber}/{pagesTotal}</span>
+			</div>
 			<div className="steps-navigation">
 				{links.map(({path, title}, i) => <Link to={path} className="arrow" title={title} key={i}/>)}
 			</div>
