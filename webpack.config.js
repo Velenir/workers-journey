@@ -13,7 +13,7 @@ const mila = require('markdown-it-link-attributes');
 const miin = require('markdown-it-include');
 const mif = require('markdown-it-footnote');
 
-// const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 const PATHS = {
 	app: path.join(__dirname, 'app'),
@@ -108,7 +108,7 @@ const common = {
 	},
 
 	plugins: [
-		// new FaviconsWebpackPlugin("./app/logo.svg")
+		new FaviconsWebpackPlugin("./app/logo.svg")
 	]
 };
 
