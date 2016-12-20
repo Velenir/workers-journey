@@ -125,15 +125,18 @@
 }
 
 .page-number {
-	left: 47%;
-	right: 47%;
+	left: 0;
+	right: 0;
 	text-align: center;
 	font: 1.1rem monospace;
 	position: absolute;
 	bottom: 10px;
-	border-top: 1px solid gray;
-	padding-top: 5px;
 	pointer-events: none;
+	
+	&__indicator {
+		border-top: 1px solid gray;
+		padding-top: 5px;
+	}
 }
 
 @import './scss/markdown', './worker-display', './not-found';
