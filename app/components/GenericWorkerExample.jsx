@@ -74,7 +74,7 @@ export default class GenericWorkerExample extends React.Component {
 	componentWillUpdate() {
 		this.stopWorker();
 	}
-	componentWillReceiveProps({route: {link_title}}) {		
+	componentWillReceiveProps({route: {link_title}}) {
 		if(link_title !== this.props.route.link_title) {
 			this.determineState(link_title);
 		}
@@ -83,7 +83,7 @@ export default class GenericWorkerExample extends React.Component {
 	render() {
 		return (
 			<GenericContent {...this.props.route}>
-				<div className="worker-display" dangerouslySetInnerHTML={{__html: this.state.html}} ref={c => (console.log("reref", c),this.display = c)}/>
+				<div className="worker-display" dangerouslySetInnerHTML={{__html: this.state.html}} ref={c => this.display = c}/>
 			</GenericContent>
 		);
 	}
