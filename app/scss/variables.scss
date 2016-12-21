@@ -1,0 +1,39 @@
+/* globals */
+/* main */
+$body-background: #fbfaef;
+$header-footer-background: #ededed;
+
+/* app */
+$menu-width: 200px !default;
+$menu-color: rgba(224, 223, 213, 0.83) !default;
+$menu-item-color: #696464 !default;
+$menu-item-color-active: black !default;
+$menu-transition: .7s linear !default;
+$content-max-width: 800px !default;
+$content-width: 60% !default;
+
+/* steps-navigation */
+$steps-navigation-arrows-color: black !default;
+
+/* markdown */
+$markdown-font: 'Open Sans' !default;
+$home-background: #f1f0e6 !default;
+$link-color: #0349a7 !default;
+$link-color-visited: #1d0ed0 !default;
+$table-border-color: #ddd !default;
+$table-odd-cell-color: #f3efef !default;
+$table-min-width: 500px !default;
+$table-fallback-width: 80% !default;
+
+/* hidenext */
+$hide-panel-transition: 1s ease-in-out !default;
+
+/* line-numbers */
+/* locals only */
+
+/* worker-display */
+/* locals only */
+
+/* footer */
+$footer-list-margin: 3px .5em 1px !default;
+$footer-link-border-color: #dacbcb !default;

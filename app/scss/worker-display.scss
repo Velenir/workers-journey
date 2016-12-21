@@ -1,10 +1,8 @@
 .worker-display {
-		
 	font-size: 1.1rem;
 	font-family: monospace;
-	
-	$active-displace: 2px !default;
-	$hover-background: #f3eeee !default;
+	$worker-active-displace: 2px !default;
+	$worker-hover-background: #f3eeee !default;
 	
 	button {
 		background: none;
@@ -14,16 +12,16 @@
 		padding: 0;
 		margin: 0;
 		font-family: inherit;
-		margin-top: $active-displace + 1;
+		margin-top: $worker-active-displace + 1;
 		
 		&:active {
-			transform: translateY($active-displace);
+			transform: translateY($worker-active-displace);
 			margin-top: 0;
-			border-top: $active-displace + 1 solid transparent;
+			border-top: $worker-active-displace + 1 solid transparent;
 		}
 
 		&:hover {
-			background: $hover-background;
+			background: $worker-hover-background;
 			background-clip: padding-box;
 		}
 		
@@ -62,7 +60,7 @@
 			}
 
 			&:hover {
-				background: $hover-background;
+				background: $worker-hover-background;
 			}
 		}
 	}

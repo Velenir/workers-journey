@@ -1,17 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-@import './hidenext', './scss/line-numbers';
-
-$markdown-font: 'Open Sans' !default;
+@import './hidenext', './line-numbers';
 
 .markdown {
-	$home-background: #f1f0e6 !default;
-	$link-color: #0349a7 !default;
-	$link-color-visited: #1d0ed0 !default;
-	$table-border-color: #ddd !default;
-	$table-odd-cell-color: #f3efef !default;
-	$table-min-width: 500px !default;
-	$table-fallback-width: 80% !default;
-
 	font-family: $markdown-font, sans-serif;
 	margin-bottom: 2em;
 	

@@ -7,12 +7,11 @@ a:focus {
 	outline: none;
 }
 
+@import './scss/variables';
+
 html {
 	height: 100%;
 }
-
-$body-background: #fbfaef;
-$header-footer-background: #ededed;
 
 body {
 	min-height: 100%;
