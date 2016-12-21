@@ -2,17 +2,15 @@ import React from 'react';
 
 import Menu from './Menu';
 
+const App = ({children}) => (
+	<div className="app">
+		<Menu/>
+		<div className="app__content">
+			{children}
+		</div>
+		
+	</div>
+);
 
-export default class App extends React.Component {
-	render() {
-		return (
-			<div className="app">
-				<Menu/>
-				<div className="app__content">
-					{this.props.children}
-				</div>
-				
-			</div>
-		);
-	}
-}
+
+export default App;

@@ -7,11 +7,6 @@ a:focus {
 	outline: none;
 }
 
-/* TODO to remove */
-div, span, p, ul {
-	outline: 1px dotted black;
-}
-
 html {
 	height: 100%;
 }
@@ -30,11 +25,6 @@ body {
 .content {
 	flex: 1 0 auto;
 	position: relative;
-
-	/* display: flex; */
-	/* flex-direction: column; */
-	/* justify-content: center; */
-	/* align-items: center; */
 }
 
 .main-header {

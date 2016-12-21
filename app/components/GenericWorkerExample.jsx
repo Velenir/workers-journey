@@ -19,7 +19,7 @@ import '!!file?name=example/shared_worker/style.css!extract!css!postcss!sass!../
 import '!!file?name=example/shared_worker/script.js!../marked/Shared/script.js';	//eslint-disable-line import/no-duplicates
 
 
-class GenericWorkerExample extends React.Component {
+export default class GenericWorkerExample extends React.Component {
 	constructor(props) {
 		super(props);
 		
@@ -54,4 +54,3 @@ class GenericWorkerExample extends React.Component {
 		);
 	}
 }
-export default GenericWorkerExample;

@@ -11,22 +11,17 @@ function constructMenuItems(pages) {
 		if(!fillingArray) fillingArray = prev;
 		
 		if(currentDepth > lastDepth) {
-			// console.log("DEEPER", currentDepth - lastDepth);
-			
 			let arrDepth = currentDepth - lastDepth;
 			
 			nestLevel += arrDepth;
 			while(arrDepth--) {
-				// console.log("DOWN");
 				fillingArray.push(fillingArray = []);
 			}
 			
 		} else if(currentDepth < lastDepth) {
-			// console.log("SHALLOWER", currentDepth - lastDepth);
 			nestLevel += currentDepth - lastDepth;
 			
 			if(nestLevel === visiblyNestedAtLevel && !visiblyNested) {
-				// console.log("at visiblyNested level");
 				--nestLevel;
 			}
 			
@@ -36,7 +31,6 @@ function constructMenuItems(pages) {
 			fillingArray = prev;
 			
 			while(arrDepth--) {
-				// console.log("UP");
 				fillingArray = fillingArray[fillingArray.length - 1];
 			}
 			
@@ -52,9 +46,7 @@ function constructMenuItems(pages) {
 		);
 		
 		lastDepth = currentDepth;
-		
-		// console.log(menu_item, "NEST LEVEL", nestLevel);
-		
+				
 		return prev;
 	}, []).map(function deepMap(li, i) {
 		if(Array.isArray(li)) {
@@ -86,8 +78,7 @@ class Menu extends React.Component {
 		});
 	}
 	
-	render() {
-		
+	render() {		
 		return (
 			<nav className={"app__menu " + this.state.menuState}>
 				<div className="app__menu__activate activate-btn" onClick={this.openCloseMenu}>
