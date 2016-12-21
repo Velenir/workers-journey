@@ -5,7 +5,7 @@
   "scripts": {
     "start": "webpack-dev-server --progress",
     "build": "webpack --progress",
-    "deploy": "npm run build && cp CNAME ./build && surge build",
+    "deploy": "npm run build && cp ./build/index.html ./build/200.html && cp CNAME ./build && surge build",
     "stats": "webpack --profile --json > stats.json",
     "commit": "git-cz",
     "test": "echo \"Error: no test specified\" && exit 1",
