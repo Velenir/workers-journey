@@ -4,12 +4,13 @@
 	height: 100%;
 }
 
+$menu-transition: .7s linear !default;
+
 .app {
 	$menu-width: 200px;
 	$menu-color: rgba(224, 223, 213, 0.83) !default;
 	$menu-item-color: #696464 !default;
 	$menu-item-color-active: black !default;
-	$menu-transition: .7s linear !default;
 	$content-max-width: 800px !default;
 	$content-width: 60% !default;
 
