@@ -19,7 +19,7 @@ function addLineNumbers(el) {
 }
 
 export default class Marked extends React.Component {
-	markCodeBlocks = () => {
+	markCodeBlocks() {
 		for (let el of this.marked.querySelectorAll("[class*=language-]")) {
 			addLineNumbers(el);
 		}

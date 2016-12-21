@@ -22,9 +22,7 @@ import '!!file?name=example/shared_worker/script.js!../marked/Shared/script.js';
 export default class GenericWorkerExample extends React.Component {
 	constructor(props) {
 		super(props);
-		
-		console.log("IN CONSTRUCTOR");
-		
+				
 		this.determineState();
 	}
 	
@@ -50,7 +48,6 @@ export default class GenericWorkerExample extends React.Component {
 	
 	addScript() {
 		if(!this.display) return;
-		console.log("ADDING SCRIPT");
 		
 		const insertScript = document.createElement("script");
 		insertScript.textContent = "(function (arguments) {" + this.state.script + "})();";
@@ -64,34 +61,26 @@ export default class GenericWorkerExample extends React.Component {
 	}
 	
 	componentDidMount() {
-		console.log("GenericWorkerExample DID MOUNT");
 		this.addScript();
 	}
 	
 	componentWillUnmount() {
-		console.log("GenericWorkerExample WILL UNMOUNT");
 		this.stopWorker();
 	}
 	
 	componentDidUpdate() {
-		console.log("GenericWorkerExample DID UPDATE");
 		this.addScript();
 	}
 	componentWillUpdate() {
-		console.log("GenericWorkerExample Will UPDATE");
 		this.stopWorker();
 	}
-	componentWillReceiveProps({route: {link_title}}) {
-		console.log("GenericWorkerExample Will RECEIVE PROPS");
-		console.log(link_title, this.props.route.link_title);
-		
+	componentWillReceiveProps({route: {link_title}}) {		
 		if(link_title !== this.props.route.link_title) {
 			this.determineState(link_title);
 		}
 	}
 	
 	render() {
-		console.log("RENDERING");
 		return (
 			<GenericContent {...this.props.route}>
 				<div className="worker-display" dangerouslySetInnerHTML={{__html: this.state.html}} ref={c => (console.log("reref", c),this.display = c)}/>
