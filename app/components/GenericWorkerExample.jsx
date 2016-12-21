@@ -57,6 +57,12 @@ export default class GenericWorkerExample extends React.Component {
 		this.display.appendChild(insertScript);
 	}
 	
+	stopWorker() {
+		// close connection to SharedWorker or stop DedicatedWorker when leaving the page
+		const stopWorkerBtn = document.getElementById("closePort") || document.getElementById("terminateWorker");
+		if(stopWorkerBtn) stopWorkerBtn.click();
+	}
+	
 	componentDidMount() {
 		console.log("GenericWorkerExample DID MOUNT");
 		this.addScript();
@@ -64,6 +70,7 @@ export default class GenericWorkerExample extends React.Component {
 	
 	componentWillUnmount() {
 		console.log("GenericWorkerExample WILL UNMOUNT");
+		this.stopWorker();
 	}
 	
 	componentDidUpdate() {
@@ -72,6 +79,7 @@ export default class GenericWorkerExample extends React.Component {
 	}
 	componentWillUpdate() {
 		console.log("GenericWorkerExample Will UPDATE");
+		this.stopWorker();
 	}
 	componentWillReceiveProps({route: {link_title}}) {
 		console.log("GenericWorkerExample Will RECEIVE PROPS");
