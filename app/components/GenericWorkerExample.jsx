@@ -23,33 +23,70 @@ export default class GenericWorkerExample extends React.Component {
 	constructor(props) {
 		super(props);
 		
-		switch(props.route.link_title) {
-		case "Dedicated Worker Example":
-			this.script = scriptDedicated;
-			this.html = htmlDedicated;
-			break;
-		case "Shared Worker Example":
-			this.script = scriptShared;
-			this.html = htmlShared;
-			break;
-		default:
-			this.script = "";
-			this.html = "";
-		}
+		console.log("IN CONSTRUCTOR");
+		
+		this.determineState();
 	}
 	
-	componentDidMount() {
+	determineState(link_title = this.props.route.link_title) {
+		let script, html;
+		
+		switch(link_title) {
+		case "Dedicated Worker Example":
+			script = scriptDedicated;
+			html = htmlDedicated;
+			break;
+		case "Shared Worker Example":
+			script = scriptShared;
+			html = htmlShared;
+			break;
+		default:
+			script = "";
+			html = "";
+		}
+		
+		this.state ={html, script};
+	}
+	
+	addScript() {
 		if(!this.display) return;
+		console.log("ADDING SCRIPT");
 		
 		const insertScript = document.createElement("script");
-		insertScript.textContent = "(function (arguments) {" + this.script + "})();";
+		insertScript.textContent = "(function (arguments) {" + this.state.script + "})();";
 		this.display.appendChild(insertScript);
 	}
 	
+	componentDidMount() {
+		console.log("GenericWorkerExample DID MOUNT");
+		this.addScript();
+	}
+	
+	componentWillUnmount() {
+		console.log("GenericWorkerExample WILL UNMOUNT");
+	}
+	
+	componentDidUpdate() {
+		console.log("GenericWorkerExample DID UPDATE");
+		this.addScript();
+	}
+	componentWillUpdate() {
+		console.log("GenericWorkerExample Will UPDATE");
+	}
+	componentWillReceiveProps({route: {link_title}}) {
+		console.log("GenericWorkerExample Will RECEIVE PROPS");
+		console.log(link_title, this.props.route.link_title);
+		
+		if(link_title !== this.props.route.link_title) {
+			this.determineState(link_title);
+		}
+	}
+	
 	render() {
+		console.log("RENDERING");
 		return (
 			<GenericContent {...this.props.route}>
-				<div className="worker-display" dangerouslySetInnerHTML={{__html: this.html}} ref={c => this.display = c}/>
+				<div className="worker-display" dangerouslySetInnerHTML={{__html: this.state.html}} ref={c => (console.log("reref", c),this.display = c)}/>
 			</GenericContent>
 		);
 	}
