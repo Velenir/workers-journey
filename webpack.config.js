@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const path = require('path');
 
 const merge = require('webpack-merge');
@@ -98,7 +100,7 @@ const common = {
 	output: {
 		path: PATHS.build,
 		filename: 'js/[name].js',
-		publicPath: '/'	// FIX this may break later on, but for now I need it for react-router + browserHistory in nested routes
+		publicPath: '/'
 	},
 
 	// Important! Do not remove ''. If you do, imports without
@@ -145,12 +147,14 @@ case 'stats':
 
 		// NODE_ENV = 'production' allows for many react and uglify optimisations
 		parts.setFreeVariables({
-			'process.env.NODE_ENV': 'production'
+			'process.env.NODE_ENV': 'production',
+			'PRODUCTION': true,
+			'GA_ID': process.env.GA_ID
 		}),
 
 		parts.extractBundle({
 			name: 'vendor',
-			entries: ['react']
+			entries: ['react', 'react-router', 'react-router-scroll', 'react-ga']
 		}),
 		parts.minify(),
 		parts.indexTemplate(

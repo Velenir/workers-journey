@@ -11,8 +11,22 @@ import useScroll from 'react-router-scroll/lib/useScroll';
 
 import routes from './helpers/routemap';
 
+let logPageView;
+
+/* eslint-disable no-undef */
+if(typeof PRODUCTION !== "undefined" && PRODUCTION) {
+	const ReactGA = require('react-ga');
+	ReactGA.initialize(GA_ID);
+/* eslint-enable no-undef */
+	
+	logPageView = function() {
+		ReactGA.set({ page: window.location.pathname });
+		ReactGA.pageview(window.location.pathname);
+	};
+}
+
 render((
-	<Router history={browserHistory} render={applyRouterMiddleware(useScroll())}>
+	<Router history={browserHistory} render={applyRouterMiddleware(useScroll())} onUpdate={logPageView}>
 		<Route path="/" component={App}>
 			{routes}
 		<Route path="*" component={NotFound}/>

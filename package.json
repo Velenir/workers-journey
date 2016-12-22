@@ -27,6 +27,7 @@
     "commitizen": "^2.8.6",
     "css-loader": "^0.26.0",
     "cz-conventional-changelog": "^1.2.0",
+    "dotenv": "^2.0.0",
     "eslint": "^3.10.2",
     "eslint-import-resolver-webpack": "^0.8.0",
     "eslint-loader": "^1.6.1",
@@ -70,6 +71,7 @@
   "dependencies": {
     "react": "^15.4.0",
     "react-dom": "^15.4.0",
+    "react-ga": "^2.1.2",
     "react-router": "^3.0.0",
     "react-router-scroll": "^0.4.1"
   },
