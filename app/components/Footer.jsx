@@ -46,8 +46,8 @@ export default class Footer extends React.Component {
 			<div className="main-footer__links site-map">
 				{this.fillLinks()}
 				<ul className="site-map site-map--credits">
-					<li>Worker's Journey by <a href="">Velenir</a></li>
-					<li>Code available on <a href="">GitHub</a></li>
+					<li>Worker's Journey by <a href="https://github.com/Velenir" target="_blank">Velenir</a></li>
+					<li>Code available on <a href="https://github.com/Velenir/workers-journey/" target="_blank">GitHub</a></li>
 				</ul>
 			</div>
 		);
