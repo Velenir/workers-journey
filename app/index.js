@@ -14,7 +14,7 @@ import routes from './helpers/routemap';
 let logPageView;
 
 /* eslint-disable no-undef */
-if(typeof PRODUCTION !== "undefined" && PRODUCTION) {
+if(PRODUCTION) {
 	const ReactGA = require('react-ga');
 	ReactGA.initialize(GA_ID);
 /* eslint-enable no-undef */

@@ -15,7 +15,7 @@ import htmlShared from '!!html!../marked/Shared/example.html';
 import '!!file?name=js/[name].[ext]!../marked/Shared/sharedworker.js';
 
 /* eslint-disable no-undef */
-if(typeof PRODUCTION !== "undefined" && PRODUCTION) {
+if(PRODUCTION) {
 	require(`!!file?name=example/shared_worker/index.html!extract!html!extract!pug-html?{export:false,data:{GA_ID:'${GA_ID}'}}!../marked/Shared/sharedworker.pug`);
 	/* eslint-enable no-undef */
 } else {
