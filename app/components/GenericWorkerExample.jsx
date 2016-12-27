@@ -13,7 +13,15 @@ import scriptShared from '!!raw!../marked/Shared/script.js';	//eslint-disable-li
 import htmlShared from '!!html!../marked/Shared/example.html';
 
 import '!!file?name=js/[name].[ext]!../marked/Shared/sharedworker.js';
-import '!!file?name=example/shared_worker/index.html!extract!html!extract!pug-html?export=false!../marked/Shared/sharedworker.pug';
+
+/* eslint-disable no-undef */
+if(typeof PRODUCTION !== "undefined" && PRODUCTION) {
+	require(`!!file?name=example/shared_worker/index.html!extract!html!extract!pug-html?{export:false,data:{GA_ID:'${GA_ID}'}}!../marked/Shared/sharedworker.pug`);
+	/* eslint-enable no-undef */
+} else {
+	require(`!!file?name=example/shared_worker/index.html!extract!html!extract!pug-html?export=false!../marked/Shared/sharedworker.pug`);
+}
+
 
 import '!!file?name=example/shared_worker/style.css!extract!css!postcss!sass!../scss/worker-display.scss';
 import '!!file?name=example/shared_worker/script.js!../marked/Shared/script.js';	//eslint-disable-line import/no-duplicates

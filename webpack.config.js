@@ -184,6 +184,9 @@ default:
 			// Customize host/port here if needed
 			host: process.env.HOST,
 			port: process.env.PORT
+		}),
+		parts.setFreeVariables({
+			'PRODUCTION': false
 		})
 	);
 }
